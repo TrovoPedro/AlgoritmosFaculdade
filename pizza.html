@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor da pizza: <input type="text" id="valorPizza">
+    Quantidade de amigos a dividir: <input type="text" id="qtdDiv">
+
+    <button onclick="calcDiv()">#lovePizza</button>
+
+</body>
+</html>
+
+<script>
+    function calcDiv(){
+        var v1 = valorPizza.value;
+        var v2 = qtdDiv.value;
+        var result = v1 / v2;
+
+        alert("Cada um dos "+v2+" amigos vai pagar: "+result)
+    }
+</script>
