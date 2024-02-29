@@ -7,10 +7,22 @@
 </head>
 <body>
     <input type="text" id="qtdKwh" placeholder="Informe a quantidade de KWh">
-    <button id="calcularLuz()">Calcular conta de luz</button>
+    <button onclick="calcularLuz()">Calcular conta de luz</button>
     <div id="respostaNaTela"></div>
 </body>
 </html>
 <script>
-    
+    function calcularLuz(){
+        var qntdKwh = Number(qtdKwh.value);
+        var calculo = qntdKwh * 0.85;
+
+        if(calculo < 100){
+            var desconto = calculo * 0.10
+            var valorCDesconto = calculo - desconto;
+            alert(`Você pagará ${valorCDesconto}`);
+            
+        }else{
+            alert(`Você pagará ${calculo}`) ;
+        }
+    }
 </script>
