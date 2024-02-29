@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="resposta">
+        <input type="text" id="num" placeholder="Informe o valor">
+        <button onclick="verificarNumero()"></button>
+    </div>
+</body>
+</html>
+
+<script>
+    function verificarNumero(){
+        var numero = Number(num.value);
+
+        if(numero > 50){
+            resposta.innerHTML = `O número ${numero} é maior que 50`;
+        }
+        else{
+            resposta.innerHTML = `O número ${numero} é menor ou igual a 50`;
+        }
+    }
+</script>
