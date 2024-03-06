@@ -28,12 +28,12 @@
           if (calculo < 100) {
                var desconto = calculo * 0.10
                var valorCDesconto = calculo - desconto;
-               mostrarNaTela.innerHTML += `${name} Você pagará ${valorCDesconto} <br>`;
+               mostrarNaTela.innerHTML += `${name} Você pagará ${desconto.toFixed(2)} com ${valorCDesconto.toFixed(2)} de desconto<br>`;
 
           } else if(calculo >= 210) {
                var acrescimo = calculo * 0.10
                var valorCAcrescimo = calculo + acrescimo
-               mostrarNaTela.innerHTML += `${name} Você pagará ${valorCAcrescimo} com ${acrescimo} de acrescimo<br>`;
+               mostrarNaTela.innerHTML += `${name} Você pagará ${valorCAcrescimo.toFixed(2)} com ${acrescimo.toFixed(2)} de acrescimo<br>`;
           }else{
                mostrarNaTela.innerHTML += `${name} Você pagará ${calculo} sem acrescimo e sem desconto<br>`;
 
