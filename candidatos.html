@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatos</title>
+</head>
+
+<body>
+    <input type="text" id="qtdVotosA" placeholder="Votos para o candidato A">
+    <input type="text" id="qtdVotosB" placeholder="Votos para o candidato B">
+    <input type="text" id="qtdVotosBranco" placeholder="Votos em branco">
+    <input type="text" id="qtdVotosNulo" placeholder="Votos nulo">
+    <button onclick="resultEleicao()">Resultado da Eleição</button>
+    <div id="mostrarTotal"></div>
+    <div id="mostrarCA"></div>
+    <div id="mostrarCB"></div>
+    <div id="mostrarInv"></div>
+    <div id="mostrarVenc"></div>
+
+</body>
+
+</html>
+
+<script>
+    function resultEleicao() {
+        var votosA = Number(qtdVotosA.value);
+        var votosB = Number(qtdVotosB.value);
+        var votosBranco = Number(qtdVotosBranco.value);
+        var votosNulo = Number(qtdVotosNulo.value);
+        var votosT = votosA + votosB + votosBranco + votosNulo;
+        var votosInv = votosBranco + votosNulo;
+        var calcVotosInv = (votosInv / votosT) * 100;
+        var calcA = (votosA * votosT) * 100;
+        var calcB = (votosB * votosT) * 100;
+
+        mostrarTotal.innerHTML = `Total de votos: ${votosT}`;
+        mostrarCA.innerHTML = `Candidato A: ${calcA.toFixed(2)}% com: ${votosA} votos`;
+        mostrarCB.innerHTML = `Candidato B: ${calcB.toFixed(2)}% com: ${votosB} votos`;
+        mostrarInv.innerHTML = `Inválidos: ${calcVotosInv.toFixed(2)}% com: ${votosInv} votos`;
+
+        if (calcA > calcB) {
+            mostrarVenc.innerHTML = `Candidato A é o vencedor com ${votosA} votos`;
+        } else if (calcB > calcA) {
+            mostrarVenc.innerHTML = `Candidato B é o vencedor com ${votosB} votos`;
+        } else {
+            mostrarVenc.innerHTML = `Houveram mais votos nulos do que em candidatos`;
+        }
+
+    }
+</script>
