@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <input type="text" id="nome" placeholder="Informe seu nome"><br><br>
+     <input type="text" id="qtdKwh" placeholder="Quantidade de KWh por dia">
+     <button onclick="calcularLuz()">Calcular</button>
+     <div id="mostrarNaTela"></div>
+
+</body>
+
+</html>
+
+<script>
+     function calcularLuz() {
+          var name = nome.value;
+          var qntdKwhDia = Number(qtdKwh.value);
+          var qntdKwh = qntdKwhDia * 30;
+          var calculo = qntdKwh * 0.85;
+
+
+          if (calculo < 100) {
+               var desconto = calculo * 0.10
+               var valorCDesconto = calculo - desconto;
+               mostrarNaTela.innerHTML += `${name} Você pagará ${valorCDesconto} <br>`;
+
+          } else if(calculo >= 210) {
+               var acrescimo = calculo * 0.10
+               var valorCAcrescimo = calculo + acrescimo
+               mostrarNaTela.innerHTML += `${name} Você pagará ${valorCAcrescimo} com ${acrescimo} de acrescimo<br>`;
+          }else{
+               mostrarNaTela.innerHTML += `${name} Você pagará ${calculo} sem acrescimo e sem desconto<br>`;
+
+          }
+          mostrarNaTela.innerHTML += `Valor do usuario ${qntdKwhDia}<br>`;
+
+     }
+</script>
