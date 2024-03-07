@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="metaEconomia" placeholder="Informe a meta de economia"><br><br>
+    <input type="text" id="dinheiroGuardado" placeholder="Informe o dinheiro guardado">
+    <button onclick="calcEconomia()">Analisar economia</button>
+    <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function calcEconomia(){
+        var meta = Number(metaEconomia.value);
+        var dGuardado = Number(dinheiroGuardado.value);
+
+        if(dGuardado == meta){
+            mensagem.innerHTML = `Parabéns, meta alcançada`;
+        }else if(dGuardado > meta){
+            mensagem.innerHTML = `Meta ultrapassada em ${dGuardado - meta}`;
+        }else{
+            mensagem.innerHTML = `Força! Ainda em busca da meta! Falta ${meta - dGuardado}`;
+        }
+    }
+</script>

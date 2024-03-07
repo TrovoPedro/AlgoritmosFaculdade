@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="loginUser" placeholder="Informe seu usuario">
+    <input type="password" id="senhaUser" placeholder="Informe sua senha">
+    <input type="password" id="codigoSeguranca" placeholder="Informe seu código de segurança">
+    <button onclick="validarLogin()">Entrar</button>
+</body>
+</html>
+<script>
+    function validarLogin(){
+        var usuario = loginUser.value;
+        var senha = senhaUser.value;
+        var codSeguranca = codigoSeguranca.value;
+
+        if(usuario == "SPTech" && senha == "digital" && codSeguranca == "123"){
+            alert("Usuário autenticado com sucesso");
+        }else{
+            alert("Falha na autenticação")
+        }
+    }
+</script>

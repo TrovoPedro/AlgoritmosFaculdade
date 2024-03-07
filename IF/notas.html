@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="valor1" placeholder="Informe o primeiro valor"><br><br>
+    <input type="text" id="valor2" placeholder="Informe o segundo valor"><br><br>
+    <input type="text" id="valor3" placeholder="Informe o terceiro valor"><br><br>
+    <button onclick="calcularMedia()">Analisar desempenho</button>
+    <div id="respostaNaTela1"></div>
+    <div id="respostaNaTela2"></div>
+</body>
+</html>
+
+<script>
+    function calcularMedia(){
+        var n1 = Number(valor1.value);
+        var n2 = Number(valor2.value);
+        var n3 = Number(valor3.value);
+        var media = (n1 + n2 + n3) / 3;
+
+        respostaNaTela1.innerHTML = `Sua média foi de ${media}`;
+
+        if(media > 9.4){
+            respostaNaTela2.innerHTML = `Parabéns, você é fora de série`;
+        }
+
+    }
+</script>
