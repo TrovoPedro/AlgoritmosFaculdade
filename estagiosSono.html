@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sono</title>
+</head>
+<body>
+    <input type="text" id="hDormidas" placeholder="Informe as horas dormidas">
+    <button onclick="calcularSono()">Calcular Sono</button>
+    <div id="mostrarNaTela"></div>
+</body>
+</html>
+
+<script>
+    function calcularSono(){
+        var faseA = Number(hDormidas.value) * 0.5;
+        var faseB = Number(hDormidas.value) * 0.45;
+        var faseC = Number(hDormidas.value) * 0.30;
+        var faseRem = Number(hDormidas.value) * 0.20;
+
+        mostrarNaTela.innerHTML = `Você dormiu ${faseA} horas na fase A <br>
+                                    ${faseB} horas na fase B<br>
+                                    ${faseC} horas na fase C<br>
+                                    e ${faseRem} horas na fase REM`
+
+    }
+</script>
