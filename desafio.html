@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_temperatura">
+    <button onclick="mostTemperatura()">Ver temperatura</button>
+</body>
+</html>
+<script>
+    function mostTemperatura(){
+        var temperatura= Number(input_temperatura.value);
+        
+        if(temperatura >= 20){
+            if(temperatura <= 24){
+                alert("temperatura confortavel");
+            }else{
+                alert("temperatura desconfortavel")
+            }
+        }else{
+            alert("temperatura desconfortavel");
+        }
+    }
+</script>
