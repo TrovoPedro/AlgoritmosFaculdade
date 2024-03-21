@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 6 exercicio 4</title>
+</head>
+
+<body>
+    <input id="input_peso" type="text" placeholder="Informe o peso da criança"><br><br>
+    <button onclick="calcular()">Calcular</button>
+
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var peso = Number(input_peso.value);
+
+        if (peso <= 13.5) {
+            alert(`Está abaixo do peso`)
+
+        } else if (peso >= 21.2) {
+            alert(`Acima do peso`)
+
+        } else if (peso >= 13.5) {
+            alert(`Peso está na média`)
+
+        } else if (peso == 18.3) {
+            alert(`Peso perfeito `)
+
+        } else {
+        }
+    }
+
+</script>
