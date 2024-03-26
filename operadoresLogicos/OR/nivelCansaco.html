@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Meio de transporte</h1>
+    <input type="text"  id="meioTransporte" placeholder="Informe o meio de transporte">
+    <button onclick="cansaco()">Calcular cansaço</button>
+</body>
+</html>
+<script>
+    function cansaco(){
+        var transporte = meioTransporte.value;
+        
+        if(transporte == "carro" || transporte == "uber"){
+            alert("Tá tranquilo");
+        }else if(transporte == "metro" || transporte == "onibus"){
+            alert("Um pouco cansado");
+        }else if(transporte == "bicicleta"){
+            alert("Vish... Vive cansado");
+        }
+    }
+</script>

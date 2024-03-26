@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="formaPag" placeholder="Informe a forma de pagamento"><br><br>
+    <div id="mensagem"></div><br><br>
+    <button onclick="verPagamento()">Analisar compra</button>
+</body>
+</html>
+<script>
+    function verPagamento(){
+        var formaPagameno = formaPag.value;
+
+        if(formaPagameno == "debito" || formaPagameno == "dinheiro"){
+            mensagem.innerHTML = "Você terá que pagar a vista";
+        }else if(formaPagameno == "credito" || formaPagameno == "boleto"){
+            mensagem.innerHTML = "Pagamento poderá ser parcelado";
+        }
+    }
+</script>

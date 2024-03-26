@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputSalario" placeholder="Informe seu salário">
+    <input type="text" id="inputAdicional" placeholder="Informe o adicional">
+    <input type="text" id="inputBonus" placeholder="Informe seu bônus">
+    <button onclick="calcRenda()">Analisar sua renda</button>
+
+    <div id="mostrarNaTela"></div>
+    <div id="mostrarNaTela2"></div>
+</body>
+
+</html>
+
+<script>
+    function calcRenda() {
+        var salario = Number(inputSalario.value);
+        var adicional = Number(inputAdicional.value);
+        var bonus = Number(inputBonus.value);
+        var salarioB = salario + adicional + bonus;
+        var descontoIr = salarioB * 0.125;
+        var descontoInss = salarioB * 0.1;
+        var descontoFgts = salarioB * 0.08;
+        var salarioLiquido = salarioB - descontoFgts - descontoInss - descontoIr;
+        var porcLiquido = salarioLiquido * 0.15;
+        var armazenamento = porcLiquido * 365;
+
+        if (salarioB >= 10000) {
+            salarioB = salarioB - descontoIr;
+        } else {
+            mostrarNaTela.innerHTML = `ANÁLISE DA SUA RENDA 
+
+            Com o salário de R$${salario}, com adicional de R$${bonus} e bônus de R$${adicional}, você tem: 
+
+            Bruto: R$${salarioB}  
+
+            IR: R$${descontoIr}  
+
+            INSS: R$${descontoInss}  
+
+            FGTS: R$${descontoFgts} 
+
+            Líquido: R$${salarioLiquido}`;
+        }
+        if(salarioLiquido >= 2500){
+           mostrarNaTela2.innerHTML = `Com a renda de R$${salarioLiquido}, é recomendado poupar R$${porcLiquido}, para que em um ano tenha poupado R$${armazenamento}`
+        }else{
+            mostrarNaTela2.innerHTML = `Com a renda de R$${salarioLiquido}, é recomendado obter renda extra para realizar uma poupança.`
+
+        }
+    }
+</script>

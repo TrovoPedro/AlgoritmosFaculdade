@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input_distanciaP" placeholder="Distancia percorrida"><br><br>
+    <input type="text" id="input_tempoD" placeholder="Duração da viagem "><br><br>
+    <input type="text" id="input_qtdPassageiro" placeholder="Quantidade de passageiro"><br><br>
+    <input type="text" id="input_horaViagem" placeholder="Hora de viagem">
+    <button onclick="calcularIViagens()">Realizar viagem</button>
+    <div id="mostrarNaTela"></div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    function calcularIViagens() {
+        var distanciaPercorrida = Number(input_distanciaP.value);
+        var tempoUser = Number(input_tempoD.value);
+        var passageiro = Number(input_qtdPassageiro.value);
+        var horario = Number(input_horaViagem.value);
+        var custoPercurso = distanciaPercorrida * 0.77;
+        var tempoEstimado = distanciaPercorrida * 1.8;
+        var tempo10P = tempoUser * 0.10;
+        var tempo_P = tempoUser * 0.10;
+        var calcCGasolina = (distanciaPercorrida / 12);
+        var valorGasolina = calcCGasolina * 4;
+        var acres = 0;
+        var desc = 0;
+
+        tempo_P = tempoUser - tempoEstimado;
+        tempo10P = tempo10P + tempoEstimado;
+
+
+        if (tempoUser >= tempo10P) {
+            acres = custoPercurso * 0.07;
+            custoPercurso = custoPercurso + acres;
+        } else {
+            desc = custoPercurso * 0.08;
+            custoPercurso = custoPercurso - desc;
+        } if (passageiro > 1) {
+            pagoPassageiro = passageiro * 3;
+            custoPercurso = pagoPassageiro + custoPercurso;
+        } if (horario <= 6) {
+            var descHorario = custoPercurso * 0.9;
+            custoPercurso = custoPercurso - descHorario;
+        } if (horario >= 20) {
+            var AcresHorario = custoPercurso * 0.11;
+            custoPercurso = custoPercurso + AcresHorario;
+        }
+
+        var valorTotal = (custoPercurso + tempo10P + tempo_P + passageiro + AcresHorario) - descHorario
+
+
+        mostrarNaTela.innerHTML += `A viagem foi iniciada ás ${horario}<br>`
+        mostrarNaTela.innerHTML += `Tinha estimativa de ${tempoEstimado} minutos e demorou ${tempoUser}<br>`
+        mostrarNaTela.innerHTML += `Percorrendo ${distanciaPercorrida}KM<br>`
+        mostrarNaTela.innerHTML += `Com ${passageiro} passageiros<br>`
+        mostrarNaTela.innerHTML += `Totalizando R$${valorTotal.toFixed(2)}<br>`
+        mostrarNaTela.innerHTML += `Foram consumidos ${calcCGasolina.toFixed(2)} litros de gasolina<br>`
+        mostrarNaTela.innerHTML += `Totalizando R$${valorGasolina.toFixed(2)} de consumo`
+
+    }
+</script>
