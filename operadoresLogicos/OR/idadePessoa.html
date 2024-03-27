@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <input type="text" id="idadeUser" placeholder="Informe sua idade">
+    <input type="text" id="idadeUser" placeholder="Informe sua idade"><br><br>
     <div id="mensagem"></div>
     <button onclick="verificarIdade()">Gratuidade</button>
+    <button onclick="limpar()">Limpar mensagens</button>
 </body>
 
 </html>
@@ -24,5 +25,8 @@
             mensagem.innerHTML = `Esse cidadão não tem direito a gratuidade`;
         }
         idadeUser.value = " ";
+    }
+    function limpar(){
+        mensagem.innerHTML = " ";
     }
 </script>
