@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="idadeUser" placeholder="Informe sua idade">
+    <div id="mensagem"></div>
+    <button onclick="verificarIdade()">Gratuidade</button>
+</body>
+
+</html>
+<script>
+    function verificarIdade() {
+        var idade = Number(idadeUser.value);
+
+        if (idade <= 10 || idade >= 60) {
+            mensagem.innerHTML = `Oferecer a gratuidade para o cidadão`;
+        } else {
+            mensagem.innerHTML = `Esse cidadão não tem direito a gratuidade`;
+        }
+        idadeUser.value = " ";
+    }
+</script>
