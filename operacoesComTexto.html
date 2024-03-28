@@ -60,6 +60,20 @@
         var fraseMinuscula = frase.toLowerCase();
         mensagem.innerHTML += `frase em caixa baixa ${fraseMinuscula} <br>`;
 
+        mensagem.innerHTML += `frase original: ${frase} <br>`;
+         
+        var fraseCArroba = frase.replace("a", "@");
+        mensagem.innerHTML += `Frase com @ no primeiro a ${fraseCArroba} <br>`;
+
+        var fraseArrobaTudo = frase.replaceAll("a", "@")
+        mensagem.innerHTML += `Frase inteira com @: ${fraseArrobaTudo} <br>`;
+
+        var fraseSemEspaco = frase.replaceAll(" ", "");
+        mensagem.innerHTML += `Frase sem espaço: ${fraseSemEspaco} <br>`;
+
+        var fraseFormata = frase.replaceAll("a", 4).replaceAll("e", 3).replaceAll("s", 5).replaceAll("A", 4).
+        replaceAll("E", 3).replaceAll("S", 5);
+        mensagem.innerHTML += `Frase Formatada: ${fraseFormata} <br>`;
 
     }
 </script>
