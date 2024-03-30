@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe sua nota na continuada: <input type="text" id="notaCont">
+    Informe sua nota na semestral: <input type="text" id="notaSem">
+    Informe seu nome <input type="text" id="nomeUser">
+
+    <button onclick="calcularMedia()">Calcular média</button>
+
+</body>
+</html>
+
+<script>
+    function calcularMedia(){
+        var nome = nomeUser.value;
+        var notaCon = notaCont.value;
+        var notaS = notaSem.value;
+        var percCon = notaCon * 0.40;
+        var percS = notaS * 0.60;
+        var result = (percCon + percS);
+        alert("A média de "+nome+" será de: "+result)
+
+    }
+</script>

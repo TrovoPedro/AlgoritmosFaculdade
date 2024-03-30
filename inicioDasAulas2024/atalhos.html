@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atalhos matematicos</title>
+</head>
+<body>
+    <h1>Atalhos Matemáticos</h1>
+    N1: <input type="text" id="input_n1">
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <button onclick="somar()">Somar</button>
+    <button onclick="subtrair()">Subtrair</button>
+
+    <div id="mensagem">1</div>
+
+</body>
+</html>
+
+<script>
+    var nAtual = 1;
+
+    function multiplicar(){
+        var valorUser = Number(input_n1.value);
+        nAtual = nAtual * valorUser;
+        mensagem.innerHTML = nAtual;
+    }
+
+    function dividir(){
+        var valorUser = Number(input_n1.value);
+        nAtual = nAtual / valorUser;
+        mensagem.innerHTML = nAtual;
+    }
+
+    function somar(){
+        var valorUser = Number(input_n1.value);
+        nAtual = nAtual + valorUser;
+        mensagem.innerHTML = nAtual;
+    }
+
+    function subtrair(){
+        var valorUser = Number(input_n1.value);
+        nAtual = nAtual - valorUser;
+        mensagem.innerHTML = nAtual;
+    }
+</script>
