@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="alturaPessoa" placeholder="Informe a altura da pessoa">
+    <select id="corCabelo">
+        <option disabled selected value="#">Selecione uma opção</option>
+        <option value="1">Preto</option>
+        <option value="2">Vermelho</option>
+        <option value="3">Amarelo</option>
+        <option value="4">Castanho</option>
+    </select>
+    <div id="mensagem"></div>
+    <button onclick="analisar()">Deu match?</button>
+</body> 
+</html>
+<script>
+    function analisar(){
+        var altura = alturaPessoa.value;
+        var cor = corCabelo.value;
+
+        if(altura <= 0 || cor == "#"){
+            alert("Por favor, preencha todas as informações");
+        }else{
+            if(altura < 1.85 && (cor == "3" || cor == "4")){
+            mensagem.innerHTML = `<img src="imgs/homemFeliz.jpg" style="width="100px"; height="100px";">`;
+        }else{
+            mensagem.innerHTML = `<img src="imgs/homemTriste.jpg" style="width="100px"; height="100px";">`;
+        }
+        }
+        
+    }
+</script>
