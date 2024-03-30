@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="marca" placeholder="Informe a marca da TV"><br><br>
+    <input type="text" id="preco" placeholder="Preço da Tv"><br><br>
+    <div id="mensagem"></div>
+    <button onclick="verCompra()">Analisar compra</button>
+</body>
+</html>
+<script>
+    function verCompra(){
+        var marcaTv = marca.value;
+        var precoTv = preco.value;
+
+        if(precoTv < 800 || precoTv > 2000){
+            mensagem.innerHTML = `Tv fora da faixa do preço<br><br>`;
+            if(precoTv < 800){
+                mensagem.innerHTML += `Preço baixo demais!<br><br>`;
+            }else if(precoTv > 2000){
+                mensagem.innerHTML += `TV cara demais, infelizmente`;
+            }
+        }else if((precoTv >= 800 || precoTv <= 2000) && (marcaTv == "mondial" || marcaTv == "britania")){
+            mensagem.innerHTML = `Na faixa de preço, porém marca não confiável`;
+        }else if((precoTv >= 800 || precoTv <= 2000) && (marcaTv == "LG" || marcaTv == "samsung")) {
+            mensagem.innerHTML = `Essa TV pode entrar na sua lista`;
+        }
+    }
+</script>

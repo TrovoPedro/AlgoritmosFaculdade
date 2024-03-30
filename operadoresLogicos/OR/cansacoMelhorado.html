@@ -16,7 +16,7 @@
 <script>
     function cansaco(){
         var transporte = meioTransporte.value;
-        var distancia = Number(distanciaP.vlaue);
+        var distancia = Number(distanciaP.value);
         
         if(distancia <= 10){
             if(transporte == "carro" || transporte == "metro" || transporte == "onibus"){
@@ -27,6 +27,8 @@
                 alert("É... Um pouco cansado");
             }else if(transporte == "metro" || transporte == "onibus"){
                 alert("Bem cansado...");
+            }else if(transporte == "bicicleta"){
+                alert("Vish... tá só o pó...");
             }
         }
     }
