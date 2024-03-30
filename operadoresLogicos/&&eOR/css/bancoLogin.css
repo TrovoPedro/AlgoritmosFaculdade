@@ -1,0 +1,200 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#container{
+    width: 350px;
+    height: 550px;
+    border-radius: 10px;
+    background: #2d695a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 530px;
+    margin-top: 30px;
+    animation: pulsate 1.5s infinite alternate; 
+    border: 0.2rem solid #fff;
+    padding: 0.4em;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #6ada01,
+            0 0 0.8rem #0b8800,
+            0 0 2.8rem #14b80e,
+            inset 0 0 1.3rem #42b167;
+}
+
+#loginUser{
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    border: solid black 2px;
+}
+
+#senhaUser{
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    border: solid black 2px;
+}
+
+#infoUser{
+    border-radius: 5px;
+    width: 195px;
+    height: 30px;
+    text-align: center;
+    border: solid black 2px;
+}
+
+button{
+    border-radius: 5px;
+    width: 190px;
+    height: 30px;
+    background: #e68b03;
+    transition: background 400ms;
+    color: white;
+    border: solid black 2px;
+}
+button:hover{
+    background: #d47100;
+    color: white;
+    cursor: pointer;
+    border: solid white 2px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  background-color: #9894ca;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.brilho {
+    position: relative;
+    min-width: 750px;
+    height: 750;
+    margin: -150px;
+    transform-origin: right;
+    animation: corMudando 5s linear infinite;
+}
+
+@keyframes corMudando {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.brilho:nth-child(even) {
+    transform-origin: left;
+}
+
+.brilho span {
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+}
+
+.brilho span:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+}
+
+.brilho span:nth-child(3n + 1):before {
+    background: rgba(134,255,0,1);
+    box-shadow: 0 0 20px rgba(134,255,0,1),
+                0 0 40px rgba(134,255,0,1),
+                0 0 60px rgba(134,255,0,1),
+                0 0 80px rgba(134,255,0,1),
+                0 0 0 8px rgba(134,255,0,.1);
+}
+
+.brilho span:nth-child(3n + 2):before {
+    background: rgba(255,214,0,1);
+    box-shadow: 0 0 20px rgba(255,214,0,1),
+                0 0 40px rgba(255,214,0,1),
+                0 0 60px rgba(255,214,0,1),
+                0 0 80px rgba(255,214,0,1),
+                0 0 0 8px rgba(255,214,0,.1);
+}
+
+.brilho span:nth-child(3n + 3):before {
+    background: rgba(0,226,255,1);
+    box-shadow: 0 0 20px rgba(0,226,255,1),
+                0 0 40px rgba(0,226,255,1),
+                0 0 60px rgba(0,226,255,1),
+                0 0 80px rgba(0,226,255,1),
+                0 0 0 8px rgba(0,226,255,.1);
+}
+
+.brilho span:nth-child(3n+1) {
+    animation: animate 10s alternate infinite;
+}
+
+.brilho span:nth-child(3n+2) {
+    animation: animate-reverse 3s alternate infinite;
+}
+
+.brilho span:nth-child(3n+3) {
+    animation: animate 8s alternate infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes animate-reverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#by {
+  font-family: 'Arima Madurai', cursive;
+  color: #C1D0D0;
+  font-size: 15px;
+  position: fixed;
+  top: 50%;
+}

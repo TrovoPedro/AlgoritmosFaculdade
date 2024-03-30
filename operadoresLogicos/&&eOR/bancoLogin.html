@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bancoLogin.css">
+</head>
+
+<body>
+  <section>
+    <div class="brilho">
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+    </div>
+    <div class="brilho">
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+    </div>
+    <div class="brilho">
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+    </div>
+    <div class="brilho">
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+    </div>
+    <div class="brilho">
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+    </div>
+  </section>
+  <div id="container">
+    <input type="text" id="loginUser" placeholder="Informe seu login"><br><br>
+    <input type="text" id="senhaUser" placeholder="Informe sua senha"><br><br>
+    <input type="text" id="infoUser" placeholder="Informe sua informaçao pessoal"><br><br>
+    <div id="mensagem"></div>
+    <button onclick="fazerLogin()">Autenticar</button>
+
+  </div>
+</body>
+
+</html>
+<script>
+  function fazerLogin() {
+    var login = loginUser.value;
+    var senha = senhaUser.value;
+    var info = infoUser.value;
+
+    if ((login == "ana" && senha == "braga") && info == "1949" || info == "louro josé") {
+      mensagem.innerHTML = `Usuário autenticado`;
+    } else {
+      mensagem.innerHTML = `Falha na autenticação`;
+    }
+
+  }
+</script>
