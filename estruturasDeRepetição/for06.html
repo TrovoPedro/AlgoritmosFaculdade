@@ -6,13 +6,18 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" id="nomeAmor" placeholder="Informe o nome do seu amor">
+    <input type="text" id="quantidadeAmor" placeholder="Quanto você a ama?">
     <button onclick="mostrarAmor()">Expressar amor</button>
+    <div id="mensagem"></div>
 </body>
 </html>
 <script>
     function mostrarAmor(){
-        for(; ; ){
-
+        var nome = nomeAmor.value;
+        var qtdAmor = Number(quantidadeAmor.value);
+        for(var i = 1; i <= qtdAmor; i++){
+            mensagem.innerHTML += `${nome}, eu te amo! Sempre lembre disso!<br>`;
         }
     }
 </script>
