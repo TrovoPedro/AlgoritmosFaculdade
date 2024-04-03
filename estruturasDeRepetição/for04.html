@@ -7,15 +7,17 @@
 </head>
 <body>
     <button onclick="contarPares()">S2 pares</button>
+    <div id="mensagem"></div>
 </body>
 </html>
 
 <script> 
     function contarPares(){
-        var par = par % 2;
+        var par = 0;
         for(var i = 0; i <= 100; i++){
-            if(par == 2){
-                mensgem.innerHTML = `${i}`;
+            par = i % 2
+            if(par == 0){
+                mensagem.innerHTML += `${i}<br>`;
             }
         }
     }
