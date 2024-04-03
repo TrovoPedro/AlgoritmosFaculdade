@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="valorUser" placeholder="Informe um valor inteiros">
+    <div id="mensagem"></div>
+    <button onclick="mostrarMultiplos()">Adoro múltiplos de 5</buttob>
+</body>
+</html>
+<script>
+    function mostrarMultiplos(){
+        var valor = Number(valorUser.value);
+
+        for(var i = 0; i <= valor; i++){
+            var aux = i * 5;
+            mensagem.innerHTML += `5 X ${i} = ${aux}<br>`
+        }
+    }
+</script>
