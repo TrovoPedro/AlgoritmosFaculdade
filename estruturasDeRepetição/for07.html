@@ -15,9 +15,15 @@
     function mostrarMultiplos(){
         var valor = Number(valorUser.value);
 
-        for(var i = 0; i <= valor; i++){
+        if(valor >= 20 && valor <= 100){
+            for(var i = 0; i <= valor; i++){
             var aux = i * 5;
-            mensagem.innerHTML += `5 X ${i} = ${aux}<br>`
+            mensagem.innerHTML += `5 X ${i} = ${aux}<br>`;
         }
+        }else{
+            alert("Valor incorreto!! Digite um número entre 20 e 100.");
+        }
+
+        
     }
 </script>
