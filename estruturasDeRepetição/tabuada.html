@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    <input type="text" id="valorUser" placeholder="Informe o valor que deseja saber a tabuada: ">
+    <button onclick="fazerTabuada()">Mostrar tabuada</button>
+    <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function fazerTabuada(){
+        var valor = Number(valorUser.value);
+
+        for(var i = 0; i <= 10; i++){
+            var tabuada = valor * i;
+            mensagem.innerHTML += `${valor} X ${i} = ${tabuada}<br>`;
+        }
+    }
+</script>
