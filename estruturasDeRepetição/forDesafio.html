@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="valorUser1" placeholder="Informe o primeiro valor">
+    <input type="text" id="valorUser2" placeholder="Informe o segundo valor">
+    <button onclick="analisarPenta()">Curto 3 e 5!</button>
+    <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function analisarPenta(){
+        var valor1 = Number(valorUser1.value);
+        var valor2 = Number(valorUser2.value);
+
+        for(var i = valor1; i <= valor2; i++){
+            if((i % 3) == 0 && (i % 5) == 0){
+                mensagem.innerHTML += `É TRI É PENTA!!!<br>`;
+            }else if((i % 3) == 0){
+                mensagem.innerHTML += `É TRI!<br>`;
+            }else if((i % 5) == 0){
+                mensagem.innerHTML += `É PENTA!!!<br>`;
+            }else{
+                mensagem.innerHTML += `${i}<br>`;
+            }
+        }
+
+    }
+</script>
