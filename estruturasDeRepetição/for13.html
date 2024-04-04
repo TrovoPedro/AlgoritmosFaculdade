@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input style="width: 350px;" type="text" id="tempoMusc" placeholder="Informe de quanto em quanto tempo você faz musculação">
+    <button onclick="irAMusculacao()">Exibir rotina mensal</button>
+    <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function irAMusculacao(){
+        var tempo = Number(tempoMusc.value);
+
+        for(var i = 1; i <= 30; i++){
+            if((i - 1) % tempo == 0){
+                mensagem.innerHTML += `Dia ${i} - Musculação<br>`;
+            }else{
+                mensagem.innerHTML += `Dia ${i} - Comer, dormir etc<br>`;
+            }
+        }
+    }
+</script>
