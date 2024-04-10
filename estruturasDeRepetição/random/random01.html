@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mostrando Números aleatórios</h2>
+    <input type="text" id="valorUser" placeholder="Informe o valor">
+    <button onclick="sortear()">Sortear</button><br>
+    <div id="mensagem">Resultado<br></div>
+</body>
+</html>
+<script>
+    function sortear(){
+        var valor = Number(valorUser.value);
+        
+        for(var i = 0; i < valor; i++){
+            mensagem.innerHTML += `${Math.random()}<br>`;
+        }
+    }
+</script>

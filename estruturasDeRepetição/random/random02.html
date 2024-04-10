@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mostrando Números aleatórios</h2>
+    <input type="text" id="valorUser" placeholder="Informe o valor">
+    <button onclick="sortear()">Sortear</button><br>
+    <div id="mensagem">Resultado<br></div>
+</body>
+</html>
+<script>
+    function sortear(){
+        var valor = Number(valorUser.value);
+        var random = 0;
+        for(var i = 0; i < valor; i++){
+            random = Math.random();
+            if(random >= 0.5){
+                mensagem.innerHTML += `${random} está na metade superior dos números<br>`;
+            }else{
+                mensagem.innerHTML += `${random} está na metade inferior dos números<br>`;
+            }
+        }
+    }
+</script>
