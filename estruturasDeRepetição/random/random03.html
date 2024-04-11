@@ -35,11 +35,13 @@
                 mensagem.innerHTML += `${random.toFixed(2)} está na metade inferior dos números<br>`;
                 abaixo++;
             }
+            var total = random + random;
         }
-        var total = random + random;
+        var media = total / valor;
         mensagem.innerHTML += `Total de números acima da metade: ${acima}<br> Total de números abaixo da metade: ${abaixo}<br>`;
         mensagem.innerHTML += `Numero maior: ${maior}<br>`;
         mensagem.innerHTML += `Numero menor ${menor}<br>`;
+        mensagem.innerHTML += ``
         mensagem.innerHTML += `Valor total: ${total}<br>`;
 
     }
