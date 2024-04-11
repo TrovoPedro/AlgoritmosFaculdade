@@ -50,15 +50,15 @@
         if (conta != 0 && (resto == digito)) {
             if (senha == "manaus" && (digito >= 0 && digito <= 3)) {
                 mensagem.style.display = "none";
-                resultado.style.display = "block";  
+                resultado.style.display = "block";
             } else if (senha == "recife" && (digito >= 4 && digito <= 7)) {
                 mensagem.style.display = "none";
                 resultado.style.display = "block";
             }
-            else if(senha == "fortaleza" && (digito > 7)) {
+            else if (senha == "fortaleza" && (digito > 7)) {
                 mensagem.style.display = "none";
                 resultado.style.display = "block";
-            }else{
+            } else {
                 alert("Dados invalidos");
             }
         } else {
@@ -73,36 +73,36 @@
 
         if (valorSelectPrazo == "curto" || valorSelectPrazo == "medio") {
             alert("Esta operação está condicionada ao seu perfil");
-        } 
-        if(valorSelectOperacao == "emprestimo" && valorSelectPrazo == "curto"){
+        }
+        if (valorSelectOperacao == "emprestimo" && valorSelectPrazo == "curto") {
             var juros = valor * 0.24
             historico++
-            conta.innerHTML += `Simulação ${historico} – Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
-        }else if(valorSelectOperacao == "emprestimo" && valorSelectPrazo == "medio"){
+            conta.innerHTML += `Simulação ${historico} - Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
+        } else if (valorSelectOperacao == "emprestimo" && valorSelectPrazo == "medio") {
             var juros = valor * 0.16
             historico++
-            conta.innerHTML += `Simulação ${historico} – Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
-        }else if(valorSelectOperacao == "emprestimo" && valorSelectPrazo == "longo"){
+            conta.innerHTML += `Simulação ${historico} - Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
+        } else if (valorSelectOperacao == "emprestimo" && valorSelectPrazo == "longo") {
             var juros = valor * 0.10
             historico++
-            conta.innerHTML += `Simulação ${historico} – Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
-        }else if(valorSelectOperacao == "investimento" && valorSelectPrazo == "curto"){
+            conta.innerHTML += `Simulação ${historico} - Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
+        } else if (valorSelectOperacao == "investimento" && valorSelectPrazo == "curto") {
             var juros = valor * 0.05
             historico++
-            conta.innerHTML += `Simulação ${historico} – Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
+            conta.innerHTML += `Simulação ${historico} - Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
         }
-        else if(valorSelectOperacao == "investimento" && valorSelectPrazo == "curto"){
+        else if (valorSelectOperacao == "investimento" && valorSelectPrazo == "curto") {
             var juros = valor * 0.08
             historico++
-            conta.innerHTML += `Simulação ${historico} – Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
+            conta.innerHTML += `Simulação ${historico} - Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano<br>`
         }
-        else if(valorSelectOperacao == "investimento" && valorSelectPrazo == "curto"){
+        else if (valorSelectOperacao == "investimento" && valorSelectPrazo == "curto") {
             var juros = valor * 0.12
             historico++
-            conta.innerHTML += `Simulação ${historico} – Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano`
+            conta.innerHTML += `Simulação ${historico} - Para o empréstimo de R$${valor} no ${valorSelectPrazo} prazo será cobrado os juros de R$${juros} ao ano`
         }
     }
-    function limpar(){
+    function limpar() {
         historico = 0;
         conta.innerHTML = '';
         valorUser.value = '';

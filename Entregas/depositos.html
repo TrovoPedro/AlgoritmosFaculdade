@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="nDepostios" placeholder="Quantos depostios deseja fazer?">
+    <input type="text" id="vDeposito" placeholder="Valor do deposito">
+    <button onclick="controlarDinheiro()">Acompanhar grana</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    function controlarDinheiro() {
+        var numeroDeposito = Number(nDepostios.value);
+        var valorDeposito = Number(vDeposito.value);
+        var total = 0;
+        for (var i = 1; i <= numeroDeposito; i++) {
+            var valorMes = valorDeposito * i;
+            if (i % 3 == 0) {
+                var bonus = valorDeposito * 0.001;
+                total = valorMes + bonus;
+                mensagem.innerHTML += `${i}° Mês: R$${total}<br>`;
+            } else {
+                mensagem.innerHTML += `${i}º Mês: R$ ${valorMes.toFixed(2)}<br>`;
+                total = total + valorMes;
+            }
+            total = total + valorDeposito;
+        }
+        mensagem.innerHTML += `<br>Total Guardado: R$ ${total.toFixed(2)}`;
+    }
+</script>

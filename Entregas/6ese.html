@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styli.css">
+</head>
+<body>
+    <Label>Numeros de depósitos</Label>
+    <input type="text" id="ipt_deposito">
+    <br><br>
+    <label for="">valor de cada deposito</label>
+    <input type="text" id="ipt_valor">
+    <br><br>
+    <button onclick="calcular()">Acompanhar Grana</button>
+
+    <div id="msg"></div>
+
+</body>
+</html>
+<script>
+    function  calcular(){
+        var deposito = Number(ipt_deposito.value);
+        var valor = Number(ipt_valor.value);
+        var guardado = 0;
+
+        for(var i = 1; i <= deposito; i++){
+            var valorMes = valor * i;
+
+            if (i % 3 == 0) {
+                var bonus = guardado * 0.01; // Calcula o bônus de 1%
+                guardado += bonus; // Adiciona o bônus ao valor guardado
+                valorMes += bonus; // Adiciona o bônus ao valor do mês atual
+            }
+            msg.innerHTML += `${i}º Mês: R$ ${valorMes.toFixed(2)}<br>`;
+            guardado += valorMes;
+        }
+        msg.innerHTML += `<br>Total Guardado: R$ ${guardado.toFixed(2)}`;
+    }
+</script>
