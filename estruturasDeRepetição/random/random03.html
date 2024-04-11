@@ -29,10 +29,10 @@
                 menor = random;
             }
             if(random >= 0.5){
-                mensagem.innerHTML += `${random} está na metade superior dos números<br>`;
+                mensagem.innerHTML += `${random.toFixed(2)} está na metade superior dos números<br>`;
                 acima++;
             }else{
-                mensagem.innerHTML += `${random} está na metade inferior dos números<br>`;
+                mensagem.innerHTML += `${random.toFixed(2)} está na metade inferior dos números<br>`;
                 abaixo++;
             }
         }
@@ -44,4 +44,3 @@
 
     }
 </script>
-
