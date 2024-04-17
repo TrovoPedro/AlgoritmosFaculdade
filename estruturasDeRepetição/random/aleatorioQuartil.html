@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="valorUser" placeholder="Informe a quantidade de numeros">
+    <button onclick="sortearQuartil()">Sortear</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    function sortearQuartil() {
+        var valor = Number(valorUser.value);
+        var primeiroQuartil = 0;
+        var segundoQuartil = 0;
+        var terceiroQuartil = 0;
+        var quartoQuartil = 0;
+        var total = 0;
+
+        for (var i = 1; i <= valor; i++) {
+            var random = Math.random();
+            if (random >= 0.75) {
+                var maiorNumero1 = 0;
+                var menorNumero1 = 1;
+                if (random > maiorNumero1) {
+                    maiorNumero1 = random;
+                } if (random < menorNumero1) {
+                    menorNumero1 = random;
+                }
+                mensagem.innerHTML += `${random} está no 1° quartil<br>Maior número:${maiorNumero1}<br> menor número: ${menorNumero1}<br>`;
+                primeiroQuartil++
+            } else if (random >= 0.5 && random < 0.75) {
+                var maiorNumero2 = 0;
+                var menorNumero2 = 1;
+                if (random > maiorNumero2) {
+                    maiorNumero2 = random;
+                } if (random < menorNumero2) {
+                    menorNumero2 = random;
+                }
+                mensagem.innerHTML += `${random} está no 2° quartil<br>Maior número:${maiorNumero2}<br> menor número: ${menorNumero2}<br>`;
+                segundoQuartil++
+            } else if (random >= 0.25 && random < 0.5) {
+                var maiorNumero3 = 0;
+                var menorNumero3 = 1;
+                if (random > maiorNumero3) {
+                    maiorNumero3 = random;
+                } if (random < menorNumero3) {
+                    menorNumero3 = random;
+                }
+                mensagem.innerHTML += `${random} está no 3° quartil<br>Maior número:${maiorNumero3}<br> menor número: ${menorNumero3}<br>`;
+                segundoQuartil++
+            } else {
+                var maiorNumero4 = 0;
+                var menorNumero4 = 1;
+                if (random > maiorNumero4) {
+                    maiorNumero4 = random;
+                } if (random < menorNumero4) {
+                    menorNumero4 = random;
+                }
+                mensagem.innerHTML += `${random} está no 4° quartil<br>Maior número:${maiorNumero4}<br> menor número: ${menorNumero4}<br>`;
+            }
+        }
+    }
+</script>

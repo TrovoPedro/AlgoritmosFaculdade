@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,19 +30,20 @@
                 menor = random;
             }
             if(random >= 0.5){
-                mensagem.innerHTML += `${random} está na metade superior dos números<br>`;
+                mensagem.innerHTML += `${random.toFixed(2)} está na metade superior dos números<br>`;
                 acima++;
             }else{
-                mensagem.innerHTML += `${random} está na metade inferior dos números<br>`;
+                mensagem.innerHTML += `${random.toFixed(2)} está na metade inferior dos números<br>`;
                 abaixo++;
             }
+            var total = random + random;
         }
-        var total = random + random;
+        var media = total / valor;
         mensagem.innerHTML += `Total de números acima da metade: ${acima}<br> Total de números abaixo da metade: ${abaixo}<br>`;
-        mensagem.innerHTML += `Numero maior: ${maior}<br>`;
-        mensagem.innerHTML += `Numero menor ${menor}<br>`;
-        mensagem.innerHTML += `Valor total: ${total}<br>`;
+        mensagem.innerHTML += `Numero maior: ${maior.toFixed(2)}<br>`;
+        mensagem.innerHTML += `Numero menor ${menor.toFixed(2)}<br>`;
+        mensagem.innerHTML += `A média dos número é: ${media.toFixed(2)}<br>`;
+        mensagem.innerHTML += `Valor total: ${total.toFixed(2)}<br>`;
 
     }
 </script>
-
