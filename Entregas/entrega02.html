@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+</head>
+
+<body>
+    <h2>One Piece Calculator</h2>
+
+    Episódio que deseja começar assistindo: <input type="text" id="input_ep"> <br>
+    Quantidade de tempo disponível: <input type="text" id="input_tempo"> <br>
+
+    Unidade de tempo em: <select id="medida">
+        <option selected disabled value="#">Selecione uma opção</option>
+        <option value="hora">Horas</option>
+        <option value="minuto">Minutos</option>
+    </select> <br>
+    Pular abertura? <select id="select_abertura">
+        <option selected disabled value="#">Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select> <br>
+    Pular encerramento? <select id="select_encerramento">
+        <option selected disabled value="#">Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select> <br><br>
+
+    <button onclick="analisar()">Assistir episódios</button> <br><br>
+    <div id="mensagem"></div>
+</body>
+<script>
+    function analisar() {
+
+        var ep = Number(input_ep.value);
+        var tempoLivre = Number(input_tempo.value);
+        var medida = medida.value;
+
+        if (ep < 1 || ep > 1100) {
+            alert(`O número do episódio é invalido`)
+        }
+        if (medida == "hora") {
+            tempoLivre = tempoLivre * 60;
+        }
+
+        var abertura = select_abertura.value;
+        var encerramento = select_encerramento.value;
+        var tempoEp = 20;
+        if (abertura == "nao") {
+            tempoEp = tempoEp + 2;
+        }
+        if (encerramento == "nao") {
+            tempoEp = tempoEp + 2;
+        }
+
+        var index = 1;
+        var minuto = 1;
+
+        if (ep >= 1 && ep <= 1100) {
+
+            for (; index <= tempoLivre; index = index + tempoEp) {
+
+                mensagem.innerHTML += (`<br><b>Episódio: ${ep}<b> <br><br>`);
+
+                for (var i = 1; i <= tempoEp; i++) {
+
+                    if (abertura == "nao" && i < 3) {
+                        mensagem.innerHTML += (`Minuto ${i}: Assistindo a Abertura <br>`);
+                    } else if (encerramento == "nao" && i > 22) {
+                        mensagem.innerHTML += (`Minuto ${i}: Assistindo o Encerramento <br>`);
+                    } else if (encerramento == "nao" && i <= 22 && abertura == "nao" && i >= 3) {
+                        mensagem.innerHTML += (`Minuto ${i}: Assistindo o Episódio <br>`);
+                    } else if (abertura == "sim" && encerramento == "nao" && i > 20) {
+                        mensagem.innerHTML += (`Minuto ${i}: Assistindo o Encerramento <br>`);
+                    } else {
+                        mensagem.innerHTML += (`Minuto ${i}: Assistindo o Episódio <br>`);
+                    }
+                    minuto++
+
+                    if ((index + i) > tempoLivre) {
+                        break
+                    }
+                }
+                ep++;
+            }
+            mensagem.innerHTML += (`<br>Fim dos episódios!<br> Você assistiu ${minuto / tempoEp} episódios<br>`);
+        }
+    }
+</script>
+
+</html>

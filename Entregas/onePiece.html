@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="br-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+</head>
+
+<body>
+    <input type="text" id="inputQtdEpisodio" placeholder="Episódio inicial"><br>
+    <input type="text" id="inputQtdTempoDisp" placeholder="Tempo disponvível"><br>
+    Unidade de tempo em:<select id="selectMinutos">
+        <option disabled selected value="#">Selecione uma opção</option>
+        <option value="horas">Horas</option>
+        <option value="minutos">Minutos</option>
+    </select><br>
+    Deseja pular a abertura?<select id="selectAbertura">
+        <option disabled selected value="#">Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select><br>
+    Deseja pular o encerramento?<select id="selectEncerramento">
+        <option disabled selected value="#">Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select><br>
+    <button onclick="validar()">Assistir Episódios</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    function validar() {
+        var episodioInicial = Number(inputQtdEpisodio.value);
+        var tempoDisponivel = Number(inputQtdTempoDisp.value);
+        var selectUnidade = selectMinutos.value;
+        var abertura = selectAbertura.value;
+        var encerramento = selectEncerramento.value;
+        var tempoEpisodio = 0;
+
+        if (abertura == "sim" && encerramento == "sim") {
+            tempoEpisodio = 20;
+        } else if (abertura == "nao" || encerramento == "nao") {
+            tempoEpisodio = 22
+        } else if (abertura == "nao" && encerramento == "nao") {
+            tempoEpisodio = 24;
+        }
+
+        if (selectUnidade == "horas") {
+            tempoDisponivel *= 60;
+        }
+
+        var nEpisodios = tempoDisponivel / tempoEpisodio;
+
+        if (episodioInicial >= 1 && episodioInicial <= 1100) {
+            for (var i = 1; i <= episodioInicial; i++) {
+                mensagem.innerHTML += `Episódio: ${i}<br>`;
+                for (var j = 1; j <= tempoEpisodio; j++) {
+                    if (abertura == "nao" && j < 3) {
+                        mensagem.innerHTML += `Minuto ${j}: Assistindo abertura <br>`;
+                    } else if (encerramento == "nao" && j > 22) {
+                        mensagem.innerHTML += `Minuto ${j}: Assistindo o encerramento <br>`;
+                    } else if (encerramento == "nao" && j <= 22 && abertura == "nao" && j >= 3) {
+                        div_msg.innerHTML += (`Minuto ${j}: Assistindo o Episódio <br>`);
+                    } else if (abertura == "sim" && encerramento == "nao" && j > 20) {
+                        div_msg.innerHTML += (`Minuto ${j}: Assistindo o Encerramento <br>`);
+                    } else {
+                        div_msg.innerHTML += (`Minuto ${j}: Assistindo o Episódio <br>`);
+                    }
+                    tempoDisponivel -= 1
+                }
+            }
+
+        } else {
+            alert("O número do episódio é inválido");
+        }
+    }
+</script>
