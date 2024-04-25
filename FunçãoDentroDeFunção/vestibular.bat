@@ -1,0 +1,1 @@
+start chrome.exe --start-fullscreen -tab "prova.sptech.school"
