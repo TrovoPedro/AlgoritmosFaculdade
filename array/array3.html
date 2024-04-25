@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Fruta: <input type="text" id="input_fruta">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">Pesquisar fruta</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    var lista_fruta = [];
+
+    function cadastrar() {
+        var fruta = input_fruta.value;
+        var indice_fruta = lista_fruta.indexOf(fruta);
+
+        if(indice_fruta == -1){
+            lista_fruta.push(fruta);
+        }else{
+            alert("A fruta já existe na lista");
+        }
+
+        mensagem.innerHTML = `[${lista_fruta}]`;
+    }
+
+    function pesquisar() {
+
+    }
+</script>
