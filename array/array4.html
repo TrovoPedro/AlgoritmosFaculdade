@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputFruta" placeholder="Informe a fruta">
+    <button onclick="exibir()">Pesquisar</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    function exibir() {
+        var frutaDigitada = inputFruta.value;
+        var listaFruta = ['morango', 'banana', 'maçã', 'pera', 'tomate', 'limão'];
+        var indiceFruta = listaFruta.indexOf(frutaDigitada);
+
+        console.log(indiceFruta);
+
+        if(indiceFruta != -1){
+            mensagem.innerHTML = `A fruta ${frutaDigitada} existe na lista.`
+        }else{
+            mensagem.innerHTML = `Não existe a fruta ${frutaDigitada} na lista.`
+        }
+
+    }
+</script>

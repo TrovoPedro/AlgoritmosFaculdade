@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputDestino" placeholder="Informe o destino da viagem">
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="viagem1()">Primeira viagem</button>
+    <button onclick="viagem2()">Terceira viagem</button>
+    <button onclick="viagem3()">Ultima viagem</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    var destinoViagem = [];
+
+    function adicionar() {
+        var destinoDigitado = inputDestino.value;
+        var indiceViagem = destinoViagem.indexOf(destinoDigitado);
+
+        destinoViagem.push(destinoDigitado);
+
+    }
+    function viagem1() {
+        var primeriaViagem = destinoViagem[0];
+        var tamanhoLista = destinoViagem.length();
+        if (tamanhoLista == 0) {
+            mensagem.innerHTML = `Voce ainda nao viajou`;
+        } else {
+            mensagem.innerHTML = `A primeria viagem é ${destinoViagem[0]}`;
+        }
+    }
+
+    function viagem2(){
+        var terceiraViagem = destinoViagem[2];
+        var tamanhoLista = destinoViagem.length();
+        if(tamanhoLista == 0){
+            mensagem.innerHTML = `Voce ainda nao fez 3 viagens`;
+        }else{
+            mensagem.innerHTML = `A erceira viagem é ${destinoViagem[2]}`;
+        }
+    }
+
+    function viagem3(){
+        var terceiraViagem = destinoViagem[2];
+        var tamanhoLista = destinoViagem.length();
+        if(tamanhoLista == 0){
+            mensagem.innerHTML = `Voce ainda nao fez 3 viagens`;
+        }else{
+            mensagem.innerHTML = `A erceira viagem é ${destinoViagem[2]}`;
+        }
+    }
+
+
+</script>
