@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>777</title>
+    <link rel="shortcut icon" href="FavIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="brazzinoTech.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">BrazinoTech</h1>
+        <div class="containerInputs">
+            <h1>Quantas fichas você quer apostar por rodada?</h1>
+            <input type="text" id="fichasCompradas">
+            <h1>Seu número da sorte</h1>
+            <input type="text" id="nSorte">
+            <button onclick="sortear()">Valendo</button>
+            <div id="mensagem"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function sortear(){
+        var qtdFichas = Number(fichasCompradas.value);
+        var saldoInicial = qtdFichas;
+        var numeroDSorte = Number(nSorte.value);
+        var qtdSorteio = Math.random();
+        var qtdSorteio1020 = (qtdSorteio * 20 );
+
+        mensagem.innerHTML = "";
+
+        if(qtdFichas > 0){
+            if(numeroDSorte >= 2 && numeroDSorte <= 12){
+                alert(`Você terá ${qtdSorteio1020.toFixed(1)} rodadas para jogar`);
+                for(var i = 1; i <= qtdSorteio1020; i++){
+                    var dado1 = (Math.random() * 10) - 4;
+                    var dado2 = (Math.random() * 10) - 4;
+                    var resultadoDado = dado1 + dado2;
+                    if(resultadoDado == numeroDSorte){
+                        qtdFichas = qtdFichas * 10;
+                        mensagem.innerHTML += `Valor do primeiro dado: ${dado1} <br> Valor do segundo dado ${dado2} <br> PARABÉNSSSS VOCÊ GANHOU!!!!!!!! <br> Saldo atual de fichas ${qtdFichas}`;
+                    }else{
+                        qtdFichas = qtdFichas - qtdFichas;
+                        mensagem.innerHTML += `Valor do primeiro dado: ${dado1} <br> Valor do segundo dado ${dado2} <br> Infelizmente você perdeu <br> Saldo atual de fichas ${qtdFichas}`;
+                    }
+                }
+                if(qtdFichas == saldoInicial){
+                    mensagem.innerHTML += `é incrível e a probabilidade disso é pequena`;
+                }else if(qtdFichas > saldoInicial){
+                    mensagem.innerHTML += `Parabens voce conseguiu vencer!!`;
+                }else{
+                    mensagem.innerHTML += `Você deve um total de ${qtdFichas - saldoInicial}`;
+                }
+            }else{
+                alert("O número precisa estar entre 2 e 12");
+            }
+        }else{
+            alert("Por favor, para apostar você precisa comprar pelo menos uma ficha");
+        }
+    }
+</script>
