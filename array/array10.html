@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input style="width: 240px;" type="text" id="linhaDigitada" placeholder="Informe a linha que pegou essa semana">
+    <button onclick="registrarLinha()">Gravar Busão</button><br><br>
+    <input type="text" id="pesquisaLinha" placeholder="Pesquisa linhas">
+    <button onclick="pesquisarLinha()">Pesquisar</button>
+    <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    var arrayBusao = [];
+
+    function registrarLinha(){
+        var linha = linhaDigitada.value;
+        mensagem.innerHTML = "";
+        if(linha == ""){
+            alert("Preencha a linha");
+        }else{
+            arrayBusao.push(linha);
+        }
+        for(var i = arrayBusao.length - 1; i >= 0; i--){
+            mensagem.innerHTML += `${arrayBusao[i]}<br>`;
+        }
+
+    }
+
+    function pesquisarLinha(){
+        var pesquisa = pesquisaLinha.value;
+        var aux = 0;
+        var qtdLinhas = []
+
+        for(var i = arrayBusao.length - 1; i >= 0; i--){
+            if(i == pesquisa){
+                aux = 1;
+                qtdLinhas.push(i);
+                mensagem.innerHTML += `Você já pegou essa linha: ${aux} nessa ordem: ${qtdLinhas}<br>`;
+            }else{
+                alert("Voce ainda nao pegou essa linha");
+            }
+        }
+    }
+</script>
