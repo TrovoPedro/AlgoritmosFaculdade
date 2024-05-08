@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input style="width: 190px;" type="text" id="inputCadastroBairro" placeholder="Informe os bairros que já morou">
+    <input type="text" id="numeroDigitado" placeholder="Informe o número ">
+    <button onclick="cadastrarBairro()">Cadastrar bairro</button>
+    <button onclick="pesquisarBairro()">Relembrar moradia</button>
+    <div id="mensagem"></div>
+
+</body>
+
+</html>
+<script>
+    var listaBairro = [];
+
+    function cadastrarBairro() {
+        var cadastroBairro = inputCadastroBairro.value;
+        listaBairro.push(cadastroBairro);
+    }
+
+    function pesquisarBairro(){
+        var nmrDigitado = numeroDigitado.value;
+
+        if(nmrDigitado == 1){
+            mensagem.innerHTML = `${nmrDigitado} - ${listaBairro[0]}`;
+        }else if(nmrDigitado == 2){
+            mensagem.innerHTML = `${nmrDigitado} - ${listaBairro[1]}`;
+        }else{
+            mensagem.innerHTML = `você ainda morum num ${numeroDigitado}° bairro!`;
+        }
+    }
+</script>

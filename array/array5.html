@@ -29,7 +29,7 @@
     }
     function viagem1() {
         var primeriaViagem = destinoViagem[0];
-        var tamanhoLista = destinoViagem.length();
+        var tamanhoLista = destinoViagem.length;
         if (tamanhoLista == 0) {
             mensagem.innerHTML = `Voce ainda nao viajou`;
         } else {
@@ -39,21 +39,21 @@
 
     function viagem2(){
         var terceiraViagem = destinoViagem[2];
-        var tamanhoLista = destinoViagem.length();
+        var tamanhoLista = destinoViagem.length;
         if(tamanhoLista == 0){
             mensagem.innerHTML = `Voce ainda nao fez 3 viagens`;
         }else{
-            mensagem.innerHTML = `A erceira viagem é ${destinoViagem[2]}`;
+            mensagem.innerHTML = `A terceira viagem é ${destinoViagem[2]}`;
         }
     }
 
     function viagem3(){
-        var terceiraViagem = destinoViagem[2];
-        var tamanhoLista = destinoViagem.length();
+        var ultimaViagem = destinoViagem[destinoViagem.length - 1];
+        var tamanhoLista = destinoViagem.length;
         if(tamanhoLista == 0){
             mensagem.innerHTML = `Voce ainda nao fez 3 viagens`;
         }else{
-            mensagem.innerHTML = `A erceira viagem é ${destinoViagem[2]}`;
+            mensagem.innerHTML = `A ultima viagem é ${ultimaViagem}`;
         }
     }
 
