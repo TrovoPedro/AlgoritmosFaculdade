@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="compraInput" placeholder="Informe qual combustível deseja comprar" style="width: 250px;">
+    <input type="text" id="qtdCompraInput" placeholder="Quantos litros deseja comprar?">
+    <button onclick="comprarCombustivel()">Comprar combustível</button><br><br>
+
+    <input type="text" id="vendaInput" placeholder="Informe qual o combustível deseja vender">
+    <input type="text" id="qtdVendaInput" placeholder="Quantos litros foram vendidos">
+    <button onclick="venderCombustivel()">Vender produto</button><br><br>
+
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+
+    var produto = [];
+    var quantidade = [];
+
+    function comprarCombustivel() {
+        var tipoCombustivel = document.getElementById("compraInput").value;
+        var qtdCompra = Number(document.getElementById("qtdCompraInput").value);
+        var indiceProduto = produto.indexOf(tipoCombustivel);
+
+        if (tipoCombustivel == "" || qtdCompra == 0) {
+            alert("Por favor, insira todos os campos corretamente");
+        } else {
+            if (indiceProduto == -1) {
+                produto.push(tipoCombustivel);
+                quantidade.push(qtdCompra);
+                alert(`${tipoCombustivel} foi cadastrado e tem ${qtdCompra} litros`);
+            } else {
+                quantidade[indiceProduto] += qtdCompra;
+                alert(`${tipoCombustivel} atualizado com mais ${qtdCompra} litros`);
+            }
+        }
+        console.log(quantidade);
+    }
+
+    function venderCombustivel() {
+        var venda = document.getElementById("vendaInput").value;
+        var qtdVenda = Number(document.getElementById("qtdVendaInput").value);
+        var indiceProduto = produto.indexOf(venda);
+
+        if (venda == "" || qtdVenda == 0) {
+            alert("Por favor, insira todos os campos corretamente");
+        } else if (indiceProduto == -1) {
+            alert("Produto não encontrado");
+        } else {
+            if (quantidade[indiceProduto] >= qtdVenda) {
+                quantidade[indiceProduto] -= qtdVenda;
+                document.getElementById("mensagem").innerHTML = `Venda feita <br> Quantidade de produto atual: ${quantidade[indiceProduto]} litros`;
+            } else {
+                alert("Quantidade insuficiente para a venda");
+            }
+        }
+        console.log(quantidade);
+    }
+
+</script>

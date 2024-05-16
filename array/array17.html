@@ -2,58 +2,79 @@
 <html lang="en">
 
 <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-          <input type="text" id="compraInput" placeholder="Informe qual combustivel deseja comprar"
-                    style="width: 250px;">
-          <input type="text" id="qtdCompraInput" placeholder="Quantos litros deseja comprar?">
-          <button onclick="comprarCombustivel()">Comprar combustivel</button><br><br>
+    <input type="text" id="compraInput" placeholder="Informe qual combustivel deseja comprar" style="width: 250px;">
+    <input type="text" id="qtdCompraInput" placeholder="Quantos litros deseja comprar?">
+    <button onclick="comprarCombustivel()">Comprar combustivel</button><br><br>
 
-          <input type="text" id="vendaInput" placeholder="Informe qual o combustivel deseja comprar?">
-          <input type="text" id="qtdVendaInput" placeholder="Quantos litros foram vendidos">
-          <button onclick="venderCombustivel()">Vender produto</button><br><br>
+    <input type="text" id="vendaInput" placeholder="Informe qual o combustivel deseja comprar?">
+    <input type="text" id="qtdVendaInput" placeholder="Quantos litros foram vendidos">
+    <button onclick="venderCombustivel()">Vender produto</button><br><br>
 
-          <div id="mensagem"></div>
+    <div id="mensagem"></div>
 </body>
 
 </html>
 <script>
 
-          var produto = []
-          var quantidade = [];
+    var produto = []
+    var quantidade = [];
 
-          function comprarCombustivel() {
-                    var tipoCombustivel = compraInput.value;
-                    var qtdCompra = qtdCompraInput.value;
-                    var indiceProduto = produto.indexOf(tipoCombustivel);
+    function comprarCombustivel() {
+        var tipoCombustivel = compraInput.value;
+        var qtdCompra = Number(qtdCompraInput.value);
+        var indiceProduto = produto.indexOf(tipoCombustivel);
 
-                    if (tipoCombustivel == "" || qtdCompra == "") {
-                              alert("Por favor, insira todos os campos");
-                    } else {
-                              produto.push(tipoCombustivel);
-                              quantidade.push(qtdCompra);
-                              alert("Produto cadastrado com sucesso")
+        if (tipoCombustivel == "" || qtdCompra == 0) {
+            alert("Por favor, insira todos os campos");
+        } else {
+            if (indiceProduto == -1) {
+                produto.push(tipoCombustivel);
+                quantidade.push(qtdCompra);
+
+                var qtdListaComprado = produto.length;
+
+                for (var i = 0; i <= qtdListaComprado; i++) {
+                    var pAtual = produto[i - 1];
+                }
+                alert(`${tipoCombustivel} foi cadastrado e tem ${pAtual} de quantidade`);
+            } else {
+                quantidade[produto.indexOf(tipoCombustivel)] = quantidade[produto.indexOf(tipoCombustivel)] + qtdCompra;
+                alert(`${tipoCombustivel}`);
+            }
+
+        }
+        console.log(quantidade);
+    }
+
+    function venderCombustivel() {
+        var venda = vendaInput.value;
+        var qtdVenda = qtdVendaInput.value;
+        var indiceProduto = produto.indexOf(venda);
+
+        if (venda == "" || qtdVenda == 0) {
+            alert("Por favor, insira todos os campos corretamente");
+        } else if (indiceProduto == -1) {
+            alert("Produto não encontrado");
+        } else {
+
+                if (indiceProduto != -1) {
+                    if (quantidade[indiceProduto] >= qtdVenda) {
+                        quantidade[indiceProduto] = quantidade[indiceProduto] - qtdVenda;
+                        for(var i = 0; i <= produto.length - 1; i++){
+                        mensagem.innerHTML += `Venda feita <br> Quantidade atual: ${quantidade[i]}`;
                     }
-          }
 
-          function venderCombustivel() {
-                    var venda = vendaInput.value;
-                    var qtdVenda = qtdVendaInput.value;
-
-                    for (i = 0; i <= produto.length; i++) {
-                              if (produto[i] == venda) {
-                                        if (quantidade[i] >= qtdVenda) {
-                                                  quantidade[i] = quantidade[i] - qtdVenda;
-                                                  mensagem.innerHTML = `Quantidade de produto atual: ${quantidade[i]}`;
-                                        } else {
-                                                  alert("Quantidade do produto fora de estoque");
-                                        }
-
-                              } 
+                    }else{
+                        alert("Quantidade fora de estoque");
                     }
-          }
+                    
+                }
+            }
+        }
 </script>
