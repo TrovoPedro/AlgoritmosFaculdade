@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliativa</title>
+</head>
+
+<body>
+    Informe o tipo de corte da carne: <input type="text" id="input_tipoCarne"><br>
+    Informe o peso da carne em gramas: <input type="text" id="input_peso"><br>
+    Informe o preço por KILO de carne: <input type="text" id="input_preco"><br><br>
+    <button onclick="cadastrar()">Adicionar carne</button><br>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+
+    var listaCarne = [];
+    var listaPeso = [];
+    var listaPreco = [];
+
+    function cadastrar() {
+        var tipoCarne = input_tipoCarne.value;
+        var pesoCarne = Number(input_peso.value);
+        var precoKG = Number(input_preco.value);
+        var posicaoTipoCarne = listaCarne.indexOf(tipoCarne);
+
+        if(tipoCarne == "" || pesoCarne == 0 || precoKG == 0){
+            alert("Por favor, preencha todos os campos!!");
+        }
+        else if(posicaoTipoCarne != -1){
+            alert("Carne já cadastrada");
+        }else{
+            listaCarne.push(tipoCarne);
+            listaPeso.push(pesoCarne);
+            listaPreco.push(precoKG);
+
+            alert("Cadastro realizado com sucesso!!");
+        }
+    }
+</script>
