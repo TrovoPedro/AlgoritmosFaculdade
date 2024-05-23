@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe seus filmes: <input type="text" id="input_filme"><br><br>
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+    <button onclick="listar()">Listar filmes</button>
+    <button onclick="filtrar()">Filtrar filmes</button>
+    <h1>
+        Total de filmes assistidos:
+    </h1>
+    <div id="mensagem">
+       
+    </div>
+    <h1>
+        Lista dos filmes assistidos:
+    </h1>
+    <div id="listarFilmes">
+        
+    </div>
+    <h1>
+        Filmes filtrados:
+    </h1>
+    <div id="filtrarFilmes">
+      
+    </div>
+</body>
+</html>
+<script>
+    var listaFilmes = [];
+    var filmeDigitado = "";
+
+    function cadastrarFilme(){
+        filmeDigitado = input_filme.value;
+        var total = listaFilmes.length;
+
+        if(input_filme.value == ""){
+            alert("Por favor, insira o filme!!");
+        }else{
+            listaFilmes.push(filmeDigitado);
+            alert("Filme cadastrado com sucesso!!");
+            mensagem.innerHTML = `Você já assistiu ${total+1}`;
+        }
+    }
+
+    function listar(){
+        for(var i = listaFilmes.length - 1; i >= 0; i--){
+            listarFilmes.innerHTML += `${listaFilmes[i]}`;
+        }
+    }
+
+    function filtrar(){
+        
+    }
+</script>
