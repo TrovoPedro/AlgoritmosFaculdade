@@ -8,7 +8,9 @@
 <body>
     Informe seus filmes: <input type="text" id="input_filme"><br><br>
     <button onclick="cadastrarFilme()">Cadastrar</button>
-    <button onclick="listar()">Listar filmes</button>
+    <button onclick="listar()">Listar filmes</button><br><br>
+    Informe o Primero intervalo<input type="text" id="input_intervalo">
+    Informe o Segundo intervalo<input type="text" id="input_intervalo2">
     <button onclick="filtrar()">Filtrar filmes</button>
     <h1>
         Total de filmes assistidos:
@@ -49,11 +51,20 @@
 
     function listar(){
         for(var i = listaFilmes.length - 1; i >= 0; i--){
-            listarFilmes.innerHTML += `${listaFilmes[i]}`;
+            listarFilmes.innerHTML += `${listaFilmes[i]}<br>`;
         }
     }
 
     function filtrar(){
-        
+        var intervalo1 = input_intervalo.value;
+        var intervalo2 = input_intervalo2.value;
+
+        if(input_intervalo.value == "" || input_intervalo2.value == ""){
+            alert("Por favor, insira todos os campos.");
+        }else{
+            for(; intervalo2 >= intervalo1; intervalo2--){
+                filtrarFilmes.innerHTML += `${listaFilmes[intervalo2 - 1]}<br>`;
+            }
+        }
     }
 </script>

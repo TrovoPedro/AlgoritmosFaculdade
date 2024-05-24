@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe as músicas que mais gosta: <input type="text" id="input_musicaC"><br>
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+    <button onclick="exibirFilmes()">Exibir</button><br><br>
+    <div id="mensagem">
+
+    </div>
+    Primeiro Intervalo <input type="text" id="input_intervalo">
+    Segundo Intervalo <input type="text" id="input_intervalo2">
+    <button onclick="filtrar()">Filtrar</button>
+    <div id="filtro">
+
+    </div>
+   
+</body>
+
+</html>
+<script>
+    var listaMusicas = [];
+
+    function cadastrarFilme() {
+        var musica = input_musicaC.value;
+
+        if(input_musicaC.value == ""){
+            alert("Por favor, preencha todos os campos.");
+            input_musicaC.value = "";
+        }else{
+            listaMusicas.push(musica);
+            alert("Música adicionada com sucesso");
+            input_musicaC.value = "";
+        }
+    }
+
+    function exibirFilmes(){
+        input_musicaC.value = "";
+
+        for(var i = 0; i <= listaMusicas.length - 1; i++){
+            mensagem.innerHTML += `${i + 1} - ${listaMusicas[i]}<br>`;
+        }
+    }
+
+    function filtrar() {
+        var intervalo1 = input_intervalo.value;
+        var intervalo2 = input_intervalo2.value;
+
+        filtro.innerHTML = "";
+
+        if(input_intervalo.value == "" || input_intervalo2.value == ""){
+            alert("Por favor, preencha todos os campos.");
+        }else{
+            input_intervalo.value = "";
+            input_intervalo2.value = "";
+
+            for(; intervalo1 <= intervalo2; intervalo1++){
+                filtro.innerHTML += `${listaMusicas[intervalo1 - 1]}<br>`;
+            }
+        }
+    }
+</script>

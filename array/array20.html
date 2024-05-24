@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe o nome do produto <input type="text" id="input_nome"><br>
+    Informe o preço do produto <input type="text" id="input_preco"><br><br>
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+    <button onclick="atualizarEstoque()">Atualizar estoque</button>
+    <div id="mensagem">
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    var listaProduto = [];
+    var listaPreco = [];
+
+    function cadastrarProduto() {
+        var nome = input_nome.value;
+        var tamanhoNome = nome.length;
+        var preco = Number(input_preco.value);
+
+        mensagem.innerHTML = "";
+
+        if (input_nome.value == "" || input_preco.value == "") {
+            alert("Por favor, preencha todos os campos.");
+        } else {
+            if (preco >= 0) {
+                if (tamanhoNome >= 3) {
+                    listaProduto.push(nome);
+                    listaPreco.push(preco);
+                    alert("Produto adicionado com sucesso!!!");
+                } else {
+                    alert("O nome do produto precisa conter pelo menos 3 letras, por favor, preencha corretamente");
+                }
+            } else {
+                alert("O preço só podem ser adicionados números positivos.");
+            }
+        }
+    }
+
+    function atualizarEstoque(){
+        var preco = Number(input_preco.value);
+
+        mensagem.innerHTML += `Você tem ${listaProduto.length} produtos cadastrados em em estoque: <br>`;
+
+        for(var i = 0; i <= listaProduto.length - 1; i++){
+            preco = preco + preco
+            mensagem.innerHTML += `${i + 1}. ${listaProduto[i]} - R$${listaPreco[i]} <br> ${preco}`;
+        }
+        
+    }
+</script>
