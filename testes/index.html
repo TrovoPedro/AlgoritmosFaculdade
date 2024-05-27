@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blend de Hambúrguer</title>
+</head>
+<body>
+    <h1>Criação de Blend de Hambúrguer</h1>
+    <div>
+        <h2>Adicionar Ingrediente</h2>
+        <label>Nome do Ingrediente: <input type="text" id="ingredientName"></label><br>
+        <label>Peso (em gramas): <input type="number" id="ingredientWeight"></label><br>
+        <label>Preço por Kilo (R$): <input type="number" step="0.01" id="ingredientPrice"></label><br>
+        <button onclick="addIngredient()">Adicionar Ingrediente no Blend</button>
+    </div>
+
+    <div id="ingredientMessage"></div>
+
+    <div>
+        <h2>Preparar Blend e Registrar</h2>
+        <label>Nome do Hambúrguer: <input type="text" id="burgerName"></label><br>
+        <button onclick="prepareBlend()">Preparar Blend e Registrar</button>
+    </div>
+
+    <div id="blendMessage"></div>
+
+    <h2>Montar Cardápio de Lanches</h2>
+    <button onclick="showMenuCreation()">Montar Cardápio de Lanches</button>
+    
+    <div id="menuCreation" style="display: none;">
+        <h2>Adicionar Lanche ao Cardápio</h2>
+        <label>Tipo de Hambúrguer: <select id="burgerType"></select></label><br>
+        <label>Quantidade de Hambúrgueres: <input type="number" id="burgerQuantity" min="1"></label><br>
+        <label>Tipo de Queijo: 
+            <select id="cheeseType">
+                <option value="0">Sem Queijo</option>
+                <option value="2">Mussarela (+R$2,00)</option>
+                <option value="2.5">Prato (+R$2,50)</option>
+                <option value="3">Cheddar (+R$3,00)</option>
+            </select>
+        </label><br>
+        <label>Cebola: <select id="onion"><option value="0">Não</option><option value="1.5">Sim (+R$1,50)</option></select></label><br>
+        <label>Alface: <select id="lettuce"><option value="0">Não</option><option value="1.75">Sim (+R$1,75)</option></select></label><br>
+        <label>Tomate: <select id="tomato"><option value="0">Não</option><option value="2">Sim (+R$2,00)</option></select></label><br>
+        <button onclick="addSandwich()">Adicionar Lanche ao Cardápio</button>
+    </div>
+
+    <div id="menuMessage"></div>
+</body>
+<script src="index.js"></script>
+</html>

@@ -8,10 +8,13 @@
 </head>
 
 <body>
-    Informe o tipo de corte da carne: <input type="text" id="input_tipoCarne"><br>
-    Informe o peso da carne em gramas: <input type="text" id="input_peso"><br>
-    Informe o preço por KILO de carne: <input type="text" id="input_preco"><br><br>
-    <button onclick="cadastrar()">Adicionar carne</button><br>
+    Informe o corte da carne: <input type="text" id="input_tipoCarne"><br>
+    Informe o peso em gramas: <input type="text" id="input_peso"><br>
+    Informe o preço por KILO: <input type="text" id="input_preco"><br>
+    <button onclick="cadastrar()">Adicionar ingredinte ao blend</button><br><br>
+    Nome do Hamburguer: <input type="text" id="input_nome">
+    <button onclick="cadastrar()">Preparar Blend e registrar</button><br>
+    <button onclick="montarCardapio()">Montar Cardapio</button>
     <div id="mensagem"></div>
 </body>
 
@@ -21,14 +24,17 @@
     var listaCarne = [];
     var listaPeso = [];
     var listaPreco = [];
+    var listaMistura = [];
+    var pesoCarne = 0;
+    var precoKG = 0;
 
     function cadastrar() {
         var tipoCarne = input_tipoCarne.value;
-        var pesoCarne = Number(input_peso.value);
-        var precoKG = Number(input_preco.value);
         var posicaoTipoCarne = listaCarne.indexOf(tipoCarne);
+        pesoCarne = Number(input_peso.value);
+        precoKG = Number(input_preco.value);
 
-        if(tipoCarne == "" || pesoCarne == 0 || precoKG == 0){
+        if(input_tipoCarne.value == "" || input_peso.value == "" || input_preco.value == ""){
             alert("Por favor, preencha todos os campos!!");
         }
         else if(posicaoTipoCarne != -1){
@@ -39,6 +45,21 @@
             listaPreco.push(precoKG);
 
             alert("Cadastro realizado com sucesso!!");
+        }
+    }
+
+    function montarBlend(){
+        var nomeHamburguer = input_nome.value;
+
+        if(input_nome.value == "" || listaCarne.length < 2){
+            mensagem.innerHTML = `Você precisa preencher todas as informações corretamente. Nome não pode ser vazio e precisa adicionar pelo menos 2 ingredientes na mistrura`;
+        }else{  
+            for(var i = 0; i <= listaCarne.length - 1; i++){
+                mensagem.innerHTML = `Preparando novo Hamburguer 
+                ${listaCarne.length + 1} - 
+                Ingrediente: ${listaCarne[i]} - Peso: ${listaPeso[i]} `
+            }
+            
         }
     }
 </script>

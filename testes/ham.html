@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Ingrediente: <input type="text" id="input_ingrediente"><br>
+    Insira o peso em gramas: <input type="text" id="input_peso"><br>
+    Insira o preço em kilos: <input type="text" id="input_preco"><br>
+    <button onclick="cadastrar()">Adicionar Ingrediente no Blend</button><br>
+    Insira o nome do hamburguera ser criado <input type="text" id="input_nomeHam">
+    <button onclick="registar()">Preparar Blend e Registrar</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    var lista_ingrediente = [];
+    var lista_peso = [];
+    var lista_preco = [];
+    var preco = 0
+    var peso = 0
+    var precoF = 0
+
+
+    function cadastrar() {
+        var ingrediente = input_ingrediente.value;
+        peso = input_peso.value;
+        preco = input_preco.value;
+
+
+
+
+
+
+
+        lista_ingrediente.push(ingrediente);
+        lista_peso.push(peso);
+        lista_preco.push(preco);
+
+
+
+        if (ingrediente == "" || peso == "" || preco == "") {
+            mensagem.innerHTML = "Falha! Campos em branco"
+        } else {
+            mensagem.innerHTML = "Sucesso!"
+        }
+
+
+    }
+
+    var lista_nomeHam = [];
+    function registar() {
+        var nomeHamburguer = input_nomeHam.value;
+
+        lista_nomeHam.push(nomeHamburguer);
+
+
+        if (nomeHamburguer = "" || lista_ingrediente.length < 2) {
+            mensagem.innerHTML = "não prosseguir <br>"
+        } else {
+            for (var index = 0; index < lista_ingrediente.length; index++) {
+                console.log(lista_peso[index]);
+                mensagem.innerHTML += `<br>${index + 1} – Ingrediente: ${lista_ingrediente[index]} – Peso: ${lista_peso[index]} - Preço KG: ${lista_preco[index]} - Preço Final: ${(lista_peso[index] / 1000) * preco} <br>`
+            }
+
+        }
+    }
+
+</script>
+
+<!--Caso tenha adicionado ao menos 2 ingredientes, deve listar todos os ingredientes adicionados na mistura do hamburguer,
+     juntamente ao preço final do ingrediente, como na mensagem abaixo:   
+
+        PREPARANDO NOVO HAMBURGUER
+        AAA – Ingrediente: BBB – Peso: CCC - Preço KG: DDD - Preço Final: EEE  
+        AAA – Ingrediente: BBB – Peso: CCC - Preço KG: DDD - Preço Final: EEE  
+        AAA – Ingrediente: BBB – Peso: CCC - Preço KG: DDD - Preço Final: EEE     -->
