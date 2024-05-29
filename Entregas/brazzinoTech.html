@@ -5,260 +5,359 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrazinoTec</title>
-
 </head>
 
-<body>
-    <style>
-        ul{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        li{
-            list-style: none;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        a{
-            text-decoration: none;
-            align-items: center;
-            justify-content: space-around;
-            margin-right: 60px;
-            color: rgb(7, 57, 133);
-            font-family: monospace;
-            font-size: 20px;
-            transition: 500ms;
-        }
-
-        a:hover{
-            background: rgb(7, 57, 133);
-            border-radius: 10px;
-            color: #d4d4d4;
-            width: ;
-        }
-
-
-        header{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        body {
-            width: 100vw;
-            height: 100vh;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-direction: row;
-            background-color: #d4d4d4;
-
-
-        }
-
-        .resultado {
-            width: 30%;
-            height: 60vh;
-            background-color:  rgb(255, 255, 255, 0.8);
-            padding-left:1vw;
-            padding-right: 1vw;
-            font-size: 2vh;
-            text-align: left;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: top ;
-            flex-direction: column;
-           
-        }
-
-        .regras {
-            width: 20%;
-            height: 60vh;
-            background-color:  rgb(255, 255, 255, 0.8);
-            padding-left:1vw;
-            padding-right: 1vw;
-            font-size: 2vh;
-            text-align: left;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .box {
-            width: 40%;
-            height: 60vh;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            
-            align-items: center;
-            flex-direction: column;
-       
-            text-align: left;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 2vh;
-            
-
-        }
-    h2{
-    text-align: center;
-    width: 100%;
-    height: auto;
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-        .input {
-            width: 96%;
-            height: 5vh;
-            padding-left: 1vw;
-        }
-        .h1{
-            position: fixed;
-            top: 0;
-            left: 43%;
-            color: red;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 10vh;
-          
-        }
-        .btn{
-            width: 50%;
-            height: 5vh;
-            border: none;
-            background-color: rgb(16, 168, 31);
-            border-radius: 15px;
-            margin-top: 3vh;
-          
-        }
-        :hover.btn{
 
-          width: 50%;
-            height: 5vh;
-            border: 1px solid white;
-            background-color: rgb(23, 211, 42);
-            border-radius: 15px;
-            transition: 2s;
+    html {
+        overflow-x: hidden;
+    }
 
-            align-content: center;
+    body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
 
-           
-        }
-        #result{
-            width: 100%;
-            height: 100%;
-            text-align: left;
-            display: flex;
-            justify-content: left; 
-            padding-left: 1vw;
-            margin-left: 0;
-            color: black;
-         
+    h1 {
+        margin-right: 890px;
+        color: #fff;
+    }
 
-        }
-        p{
-            text-align: left;
-        }
-        .boxInput{
-       
-            width: 80%;
-            height: auto;
+    header {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        background: #073b1d;
+        width: 100vw;
+        height: 10vh;
+    }
 
-        }
-    
-    </style>
+    ul {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    li {
+        text-decoration: none;
+        margin-right: 15px;
+        list-style: none;
+        color: #fff;
+    }
+
+    #mensagem1 {
+        margin-top: 50px;
+    }
+
+    #resultado {
+        background: #646262;
+    }
+
+    button {
+        width: 150px;
+        height: 30px;
+        background: #074111;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        margin-top: 40px;
+        transition: 500ms;
+    }
+    button:hover{
+        cursor: pointer;
+        background: #066837;
+    }
+</style>
+
+<body>
     <header>
         <ul>
-            <a href=""><li>Home</li></a>
-            <a href=""><li>Home</li></a>
-            <a href=""><li>Home</li></a>
-            <a href=""><li>Home</li></a>
+            <h1>É O BRAZINO</h1>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
         </ul>
     </header>
-    <div class="container">
-        <div class="box">
-            <h2> APOSTA </h2>
-           <div class="boxInput">
-            <p>Valor da aposta:</p> 
-            <input type="text" id="balasInput" placeholder="Digite a quantidade de balas:" class="input">
-           
-            <p>Palpite: </p>
-            <input type="text" id="nmrSorte" placeholder="Digite seu palpite: " class="input">
-        </div>
-            <button class="btn" onclick="apostar()"> VALENDO </button>
-        </div>
-        <div class="resultado" id="resultado">
-            <h2> RESULTADO </h2>
-            <div id="result" style="text-align:center ;">
+    <div id="mensagem1" style="display: block;">
+        Quantas balas vai apostar: <input type="text" id="qtd_balas"> <br><br>
+        Insira seus três números da sorte<br>
+        <input type="text" id="nm1">
+        <input type="text" id="nm2">
+        <input type="text" id="nm3"><br>
+        <button onclick="add()">ADICIONAR</button> 
+        <button onclick="hist()">FILTRAR</button> 
+        <button onclick="pesqDado()">PESQUISAR DADO</button> <br>
+        <button onclick="valendo()">VALENDO</button>
+        <button onclick="limpar()">LIMPAR</button>
 
-            </div>
-           
-        </div>
+        <div id="resultado"></div>
+    </div>
+
+    <div id="mensagem2" style="display: none;">
+        <h1>INSIRA O INTERVALO QUE DESEJA</h1>
+        <input type="text" id="input_intervalo1" placeholder="De..."> <input type="text" id="ultimo"
+            placeholder="até...">
+        <button onclick="intervalo()">PESQUISAR RODADAS</button>
+        <button onclick="voltar()">Voltar</button>
+
+        <div id="resultado2"></div>
+    </div>
+
+    <div id="pg3" style="display: none;">
+        <h1>PESQUISAR DADO</h1>
+        <input type="text" placeholder="Número do dado" id="pqsD">
+        <button onclick="pesquisarDado()">PESQUISAR</button>
+        <button onclick="voltar1()">VOLTAR</button>
+
+        <div id="resultado3"></div>
+
     </div>
 </body>
-<script>
-     var saldo = 100;
-    function apostar(){
-        
-    var aposta = Number(balasInput.value);
-    var palpite = Number(nmrSorte.value);
-    var rodadas = Math.random()*10+10;
-    var rodadasCerta = rodadas.toFixed(0);
-   
-
-    if(aposta <= 0 || (palpite < 2 &&  palpite >12)){
-    alert('Verifique se os valores inseridos! Consulte as regras.');
-    }
-    else{
-        result.innerHTML = (' ');
-       for(var i = 1; i <= rodadasCerta; i++){
-       
-        var dado1 = Math.random()*5+1;
-        var dado2 = Math.random()*5+1;
-
-        var dado1Certo = Number(dado1.toFixed(0));
-        var dado2Certo = Number(dado2.toFixed(0));
-        var soma = dado1Certo+dado2Certo;
-        
-        if( palpite == (dado1Certo)+(dado2Certo)){      
-            saldo += aposta*10; 
-            result.innerHTML += ( `Rodada: ${i} - Aposta ${aposta} - 1º Dado: ${dado1Certo} - 2º Dado: ${dado2Certo} - Ganhou - Saldo ${saldo} <br>`);
-            
-            
-        }
-        else{
-           
-            dado1Certo + dado2Certo
-            saldo -= aposta;
-            result.innerHTML += ( `Rodada: ${i} - Aposta ${aposta} - 1º Dado: ${dado1Certo} - 2º Dado: ${dado2Certo} - Perdeu - Saldo ${saldo} <br>`);
-            
-        }
-        if(saldo <= 0 ){
-            result.innerHTML = ` `
-           result.innerHTML += `Saldo insuficiente!`
-           break
-        }
-
-
-        
-        
-       }
-      
-       console.log(saldo);
-       
-    }
-    }
-
-</script>
 
 </html>
+<script>
+    var lista_qtdBalas = [];
+    var lista_nmS = [];
+    var lista_dado1 = [];
+    var lista_dado2 = [];
+    var lista_rodada = [];
+
+    var totalBalas = 0;
+    var dado1 = 0;
+    var dado2 = 0;
+    var rodada = 0;
+
+    function hist() {
+        mensagem1.style.display = 'none';
+        mensagem2.style.display = 'block';
+    }
+
+    function voltar() {
+        mensagem2.style.display = 'none';
+        mensagem1.style.display = 'block';
+    }
+
+    function add() {
+        var nmS1 = Number(nm1.value);
+        var nmS2 = Number(nm2.value);
+        var nmS3 = Number(nm3.value);
+        if (nmS1 == '' && nmS2 == '' || nmS3 == '') {
+            alert("Insira seus números da sorte!");
+        } else {
+            lista_nmS.push(nmS1);
+            lista_nmS.push(nmS2);
+            lista_nmS.push(nmS3);
+            console.log(lista_nmS);
+            alert("números da sorte adicionados");
+            nm1.value = '';
+            nm2.value = '';
+            nm3.value = '';
+        }
+
+    }
+
+    function valendo() {
+        var qtdBalas = qtd_balas.value;
+
+        totalBalas += qtdBalas;
+
+        if (qtdBalas == '' || lista_nmS.length < 3) {
+            alert("Insira a quantidade de balas ou adicione os números");
+
+        } else {
+            resultado.innerHTML = ``;
+
+            var min = 10;
+            var max = 20;
+            var intervalo = max - min;
+            var aleatorio = Math.rand;
+
+            rodada = aleatorio * intervalo + min;
+            rodada = Number(rodada.toFixed(0));
+            lista_rodada.push(rodada);
+
+            for (var index = 0; index <= rodada; index++) {
+                var minD = 1;
+                var maxD = 6;
+                var intervaloD = maxD - minD;
+                var aleatorioD1 = Math.random();
+                var aleatorioD2 = Math.random();
+
+                dado1 = aleatorioD1 * intervaloD + minD;
+                dado2 = aleatorioD2 * intervaloD + minD;
+                dado1 = Number(dado1.toFixed(0));
+                dado2 = Number(dado2.toFixed(0));
+
+                lista_dado1.push(dado1);
+                lista_dado2.push(dado2);
+
+                var soma = dado1 + dado2;
+
+                if (lista_nmS.indexOf(soma) == -1) {
+
+                    totalBalas -= qtdBalas;
+
+                    resultado.innerHTML += `
+                        Rodada ${index + 1} <br>
+                        Numeros Sorteados: ${lista_nmS} <br>
+                        Numero do Dado 1: ${dado1} <br>
+                        Numero do Dado 2: ${dado2} <br>
+                        Soma dos Dados: ${soma} <br>
+                        Saldo atual: ${totalBalas} <br>
+                        <b>Rodada Perdida</b><br>`;
+
+                    lista_qtdBalas.push(totalBalas);
+                } else {
+
+                    totalBalas = totalBalas + (qtdBalas * 5);
+
+                    resultado.innerHTML += `
+                        Rodada ${index + 1} <br>
+                        Numeros Sorteados: ${lista_nmS} <br>
+                        Numero do Dado 1: ${dado1} <br>
+                        Numero do Dado 2: ${dado2} <br>
+                        Soma dos Dados: ${soma} <br>
+                        Saldo atual: ${totalBalas} <br>
+                        <b>Rodada Ganha</b><br>`;
+                    lista_qtdBalas.push(totalBalas);
+                }
+            }
+
+            if (totalBalas < 0) {
+                resultado.innerHTML += `Me pague as balas que me deve!!! ${totalBalas} Balas`;
+
+            } else if (totalBalas > qtdBalas) {
+                resultado.innerHTML += `Parabéns! você vai receber ${totalBalas} Balas`;
+
+            } else if (totalBalas == qtdBalas) {
+                resultado.innerHTML += `Incrivel!!! Chegar com as Balas e sair com as a mesma quantidade de balas, isso é incrível e a probabilidade disso é pequena`;
+
+            } else if (totalBalas < qtdBalas) {
+                resultado.innerHTML += `Infelizmente voçê sair perdendo!, ${totalBalas} Balas`;
+            }
+        }
+
+    }
+
+    function intervalo() {
+        var intervalo1 = Number(input_intervalo1.value);
+        var intervalo2 = Number(ultimo.value);
+
+        if (intervalo1 == '' || intervalo2 == '') {
+            alert('Preencha os campos corretamente');
+        }
+        else if (intervalo1 > intervalo2 || intervalo1 <= 0) {
+            alert("intervalo não existe!");
+        }
+        else {
+
+            resultado2.innerHTML = ``;
+
+            for (; intervalo1 <= intervalo2; intervalo1++) {
+                var soma = lista_dado1[intervalo1] + lista_dado2[intervalo1];
+
+                if (lista_nmS.indexOf(soma) == -1) {
+                    resultado2.innerHTML += `
+                        Rodada ${intervalo1} <br>
+                        Numeros Sorteados: ${lista_nmS} <br>
+                        Numero do Dado 1: ${lista_dado1[intervalo1]} <br>
+                        Numero do Dado 2: ${lista_dado2[intervalo1]} <br>
+                        Soma dos Dados: ${soma} <br>
+                        Saldo atual: ${lista_qtdBalas[intervalo1]} <br>
+                        <b>Rodada Perdida</b><br>
+                    `;
+
+                } else {
+                    resultado2.innerHTML += `
+                        Rodada ${intervalo1} <br>
+                        Numeros Sorteados: ${lista_nmS} <br>
+                        Numero do Dado 1: ${lista_dado1[intervalo1]} <br>
+                        Numero do Dado 2: ${lista_dado2[intervalo1]} <br>
+                        Soma dos Dados: ${soma} <br>
+                        Saldo atual: ${lista_qtdBalas[intervalo1]} <br>
+                        <b>Rodada Ganha</b><br>
+                    `;
+                }
+
+            }
+
+        }
+    }
+
+    function pesqDado() {
+        var pesqD = pqsD.value;
+        mensagem2.style.display = 'none';
+        mensagem1.style.display = 'none';
+        pg3.style.display = 'block';
+    }
+
+    function voltar1() {
+        mensagem2.style.display = 'none';
+        mensagem1.style.display = 'block';
+        pg3.style.display = 'none';
+    }
+
+    function pesquisarDado() {
+        var numDado = Number(pqsD.value);
+
+        if (numDado == '') {
+            alert('Preencha os campos corretamente');
+        } else {
+
+            resultado3.innerHTML = ``;
+
+            for (var index = 0; index <= lista_rodada[0]; index++) {
+
+                var soma = lista_dado1[index] + lista_dado2[index];
+
+                if (lista_dado1[index] == numDado || lista_dado2[index] == numDado) {
+
+                    if (lista_nmS.indexOf(soma) == -1) {
+                        resultado3.innerHTML += `
+                            Rodada ${index} <br>
+                            Numeros Sorteados: ${lista_nmS} <br>
+                            Numero do Dado 1: ${lista_dado1[index]} <br>
+                            Numero do Dado 2: ${lista_dado2[index]} <br>
+                            Soma dos Dados: ${soma} <br>
+                            Saldo atual: ${lista_qtdBalas[index]} <br>
+                            <b>Rodada Perdida</b><br>
+                        `;
+
+                    } else {
+                        resultado3.innerHTML += `
+                            Rodada ${index} <br>
+                            Numeros Sorteados: ${lista_nmS} <br>
+                            Numero do Dado 1: ${lista_dado1[index]} <br>
+                            Numero do Dado 2: ${lista_dado2[index]} <br>
+                            Soma dos Dados: ${soma} <br>
+                            Saldo atual: ${lista_qtdBalas[index]} <br>
+                            <b>Rodada Ganha</b><br>
+                        `;
+                    }
+
+                }
+            }
+        }
+    }
+
+    function limpar() {
+        lista_dado1 = [];
+        lista_dado2 = [];
+        lista_nmS = [];
+        lista_qtdBalas = [];
+        lista_rodada = [];
+
+        resultado.innerHTML = ``;
+        resultado2.innerHTML = ``;
+        resultado3.innerHTML = ``;
+    }
+</script>
