@@ -31,18 +31,9 @@
         var ingrediente = input_ingrediente.value;
         peso = input_peso.value;
         preco = input_preco.value;
-
-
-
-
-
-
-
         lista_ingrediente.push(ingrediente);
         lista_peso.push(peso);
         lista_preco.push(preco);
-
-
 
         if (ingrediente == "" || peso == "" || preco == "") {
             mensagem.innerHTML = "Falha! Campos em branco"
@@ -58,8 +49,6 @@
         var nomeHamburguer = input_nomeHam.value;
 
         lista_nomeHam.push(nomeHamburguer);
-
-
         if (nomeHamburguer = "" || lista_ingrediente.length < 2) {
             mensagem.innerHTML = "não prosseguir <br>"
         } else {

@@ -7,59 +7,235 @@
     <title>Avaliativa</title>
 </head>
 
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #menu {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        color: #b38b0b;
+        background: #9e0d0d;
+        font-size: 20px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        height: 20px;
+        width: 150px;
+    }
+
+    select {
+        height: 20px;
+        width: 150px;
+    }
+
+    button{
+        width: 150px;
+    }
+
+    #container2 {
+        width: 100vw;
+        height: 100vh;
+        background: #d4d4d4;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mensagem2 {
+        margin-top: 50px;
+    }
+
+    #cardapio {
+        display: flex;
+        width: 40vw;
+        height: 50vh;
+        border-radius: 10px;
+        background: #c51313;
+        justify-content: center;
+        color: #d4d4d4;
+    }
+</style>
+
 <body>
-    Informe o corte da carne: <input type="text" id="input_tipoCarne"><br>
-    Informe o peso em gramas: <input type="text" id="input_peso"><br>
-    Informe o preço por KILO: <input type="text" id="input_preco"><br>
-    <button onclick="cadastrar()">Adicionar ingredinte ao blend</button><br><br>
-    Nome do Hamburguer: <input type="text" id="input_nome">
-    <button onclick="cadastrar()">Preparar Blend e registrar</button><br>
-    <button onclick="montarCardapio()">Montar Cardapio</button>
+    <div id="container" style="display: block;">
+        Informe o corte da carne: <input type="text" id="input_tipoCarne"><br>
+        Informe o peso em gramas: <input type="text" id="input_peso"><br>
+        Informe o preço por KILO: <input type="text" id="input_preco"><br>
+        <button onclick="cadastrar()">Adicionar ingredinte ao blend</button><br><br>
+        Nome do Hamburguer: <input type="text" id="input_nome">
+        <button onclick="cadastrarBlend()">Preparar Blend e registrar</button><br>
+        <button onclick="montarCardapio()">Montar Cardapio</button><br><br>
+    </div>
     <div id="mensagem"></div>
+    <div id="container2" style="display: none;">
+        <div id="menu">
+            Lista de Hamburguer: <br>
+        </div>
+        <div class="conteudo">
+            <b>Nome do hamburguer: </b><input type="text" id="input_tipoHamburguer">
+            <b>Quantidade de hamburguer:</b><input type="text" id="input_qtdHamburguer">
+            <b>Tipo de queijo</b><select id="selectQueijo">
+                <option value="#" disabled selected>Selecione uma opção</option>
+                <option value="semQueijo">Sem queijo</option>
+                <option value="mussarela">Mussarela</option>
+                <option value="prato">Prato</option>
+                <option value="cheddar">Cheddar</option>
+            </select>
+            Cebola <select id="selectCebola">
+                <option value="#" disabled selected>Selecione uma opção</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            Alface <select id="selectAlface">
+                <option value="#" disabled selected>Selecione uma opção</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            Tomate <select id="selectTomate">
+                <option value="#" disabled selected>Selecione uma opção</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            <button onclick="cadastrarCardapio()">Adicionar lanche ao Cardapio</button>
+        </div>
+        <div id="cardapio">
+            <h1>Cardapio</h1>
+            <div id="mensagem2">
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
 <script>
-
-    var listaCarne = [];
+    var listaNome = [];
     var listaPeso = [];
+    var listaPrecoFinal = [];
     var listaPreco = [];
-    var listaMistura = [];
-    var pesoCarne = 0;
+    var listaBlend = [];
     var precoKG = 0;
+    var preco = 0;
+    var precoFinal = 0;
+    var pesoFinal = 0;
 
     function cadastrar() {
         var tipoCarne = input_tipoCarne.value;
-        var posicaoTipoCarne = listaCarne.indexOf(tipoCarne);
-        pesoCarne = Number(input_peso.value);
-        precoKG = Number(input_preco.value);
+        peso = Number(input_peso.value);
+        preco = Number(input_preco.value);
+        var indexNome = listaNome.indexOf(tipoCarne);
+        precoKG = (peso / 1000) * preco;
+        console.log(precoKG);
 
-        if(input_tipoCarne.value == "" || input_peso.value == "" || input_preco.value == ""){
-            alert("Por favor, preencha todos os campos!!");
-        }
-        else if(posicaoTipoCarne != -1){
-            alert("Carne já cadastrada");
-        }else{
-            listaCarne.push(tipoCarne);
-            listaPeso.push(pesoCarne);
-            listaPreco.push(precoKG);
-
-            alert("Cadastro realizado com sucesso!!");
+        if (input_tipoCarne.value == "" || input_peso.value == "" || input_preco.value == "") {
+            mensagem.innerHTML = `<style>#mensagem{color:red;}</style>Por favor, preencha todos os campos`;
+        } else {
+            if (indexNome != -1) {
+                mensagem.innerHTML = `<style>#mensagem{color:red;}</style>Desculpe, produto já existe no sistema, por favor adicione outro produto`;
+            } else {
+                listaNome.push(tipoCarne);
+                listaPeso.push(peso);
+                listaPreco.push(preco);
+                listaPrecoFinal.push(precoKG);
+                console.log(listaPreco);
+                mensagem.innerHTML = `<style>#mensagem{color:green;}</style>Produto adicionado com sucesso`;
+            }
         }
     }
 
-    function montarBlend(){
-        var nomeHamburguer = input_nome.value;
+    function cadastrarBlend() {
+        var blend = input_nome.value;
 
-        if(input_nome.value == "" || listaCarne.length < 2){
-            mensagem.innerHTML = `Você precisa preencher todas as informações corretamente. Nome não pode ser vazio e precisa adicionar pelo menos 2 ingredientes na mistrura`;
-        }else{  
-            for(var i = 0; i <= listaCarne.length - 1; i++){
-                mensagem.innerHTML = `Preparando novo Hamburguer 
-                ${listaCarne.length + 1} - 
-                Ingrediente: ${listaCarne[i]} - Peso: ${listaPeso[i]} `
+        if (input_nome.value == "" || listaNome.length < 2) {
+            mensagem.innerHTML = `<style>#mensagem{color:red;}</style>Por favor, insira o nome do hamburguer`;
+            console.log(listaNome);
+        } else {
+            listaBlend.push(blend);
+            mensagem.innerHTML = `<style>#mensagem{color:green;}</style>Nome do lanche adicionado com sucesso`;
+            mensagem.innerHTML = `<b>PREPARANDO NOVO HAMBUGUER</><br>`;
+
+            for (var i = 0; i <= listaNome.length - 1; i++) {
+                mensagem.innerHTML += `${i + 1} - Ingrediente: ${listaNome[i]} - Peso: ${listaPeso[i]} Preço KG: ${listaPreco[i]} Preço Final: ${listaPrecoFinal[i]}<br>`;
+                precoFinal += listaPrecoFinal[i];
+                pesoFinal += listaPeso[i];
             }
-            
+        }
+    }
+
+    function montarCardapio() {
+        if (listaBlend.length <= 0) {
+            mensagem.innerHTML = `<style>#mensagem{color:red;}</style>Desculpe, nenhum hamburguer foi montado ainda`;
+        } else {
+            container.style.display = "none";
+            container2.style.display = "flex";
+            mensagem.style.display = "none";
+            for (var i = 0; i <= listaBlend.length - 1; i++) {
+                menu.innerHTML += `${i + 1} - ${listaBlend[i]}<br>`;
+            }
+        }
+    }
+
+    var listaNomeCardapio = [];
+    var ListapesoCardapio = [];
+    var listaPFinalCardapio = [];
+
+    function cadastrarCardapio() {
+        var nomeHamburguer = input_tipoHamburguer.value;
+        var qtdHamburguer = input_qtdHamburguer.value;
+        var queijo = selectQueijo.value;
+        var cebola = selectCebola.value;
+        var alface = selectAlface.value;
+        var tomate = selectTomate.value;
+        var indexNome = listaBlend.indexOf(nomeHamburguer);
+
+        if (input_tipoHamburguer.value == "" || input_qtdHamburguer.value == "" || queijo == "#" || cebola == "#" || alface == "#" || tomate == "#") {
+            mensagem2.innerHTML = `por favor, preencha todos os campos`;
+        } else {
+            if (indexNome == -1) {
+                mensagem2.innerHTML = `<style>#mensagem2{color:white;}</style>Desculpe, o hamburguer ${nomeHamburguer} não está em nosso cardápio`;
+            } else {
+                if (queijo == "mussarela") {
+                    precoFinal += 2;
+                } else if (queijo == "prato") {
+                    precoFinal += 2.5;
+                } else {
+                    precoFinal += 3;
+                }
+                if (cebola == "sim") {
+                    precoFinal += 1.5;
+                } else if (alface == "sim") {
+                    precoFinal += 1.75;
+                } else if (tomate == "sim") {
+                    precoFinal += 2;
+                }
+                mensagem2.innerHTML += `Tipo do hamburguer: ${nomeHamburguer} (${pesoFinal}g / R$${listaPrecoFinal[0]})<br>
+                Quantidade de Hamburgueres: ${qtdHamburguer}x<br>
+                Queijo: ${queijo}<br>
+                Cebola: ${cebola}<br>
+                Alface: ${alface}<br>
+                Tomate: ${tomate}<br>
+                Preço Final: R$${precoFinal}`;
+            }
         }
     }
 </script>
