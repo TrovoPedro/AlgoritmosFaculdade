@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe o nome do time: <input type="text" id="input_nomeTime"><br><br>
+    Informe a quantidade de vitoria <input type="text" id="input_vitoria"><br><br>
+    Informe a quantidade de empate <input type="text" id="input_empate"><br><br>
+    Informe a quantidade de derrota <input type="text" id="input_derrota"><br><br>
+    <button onclick="analisarCamp()">Comparar campanhas</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    function analisarCamp() {
+
+        if (input_nomeTime.value == "" || input_vitoria.value == "" || input_empate.value == "" || input_derrota.value == "") {
+            alert("Por favor, preencha todos os campos");
+        } else {
+
+            if (input_vitoria.value < 0 || input_empate.value < 0 || input_derrota.value < 0) {
+                alert("Os valores precisam ser maior ou igual a 0")
+            } else {
+                var campanha = [{
+                    nome: "",
+                    vitoria: "",
+                    empate: "",
+                    derrota: ""
+                },{
+                    nome: "",
+                    vitoria: "",
+                    empate: "",
+                    derrota: "" 
+                }]
+
+                campanha[0].nome = "Palmeiras";
+                console.log(campanha[0].nome);
+
+
+                mostrarCamp(campanha);
+            }
+        }
+
+    }
+
+//freeza 
+
+    function mostrarCamp(campanha) {
+
+        var pontosVitoria = campanha.vitoria * 3;
+        var pontosEmpate = campanha.empate * 1;
+        var pontoTotal = pontosVitoria + pontosEmpate;
+
+        for (var i = 0; i < 0; i++) {
+            mensagem.innerHTML = `O time terminou com ${pontoTotal} pontos`;
+        }
+    }
+</script>
