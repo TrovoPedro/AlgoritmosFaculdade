@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input_vitoria"><br><br>
+    <input type="text" id="input_empate"><br><br>
+    <input type="text" id="input_derrota"><br><br>
+    <button onclick="analisarCamp()">Analisar campanha</button>
+    <div id="mensagem"></div>
+</body>
+
+</html>
+<script>
+    function analisarCamp() {
+
+        if (input_vitoria.value == "" || input_empate.value == "" || input_derrota.value == "") {
+            alert("Por favor, preencha todos os campos");
+        } else {
+
+            if (input_vitoria.value < 0 || input_empate.value < 0 || input_derrota.value < 0) {
+                alert("Os valores precisam ser maior ou igual a 0")
+            } else {
+                var campanha = {
+                    vitoria: input_vitoria.value,
+                    empate: input_empate.value,
+                    derrota: input_derrota.value
+                }
+
+                mostrarCamp(campanha);
+            }
+
+        }
+    }
+
+    function mostrarCamp(campanha) {
+
+        console.log(campanha.vitoria);
+
+        var pontosVitoria = campanha.vitoria * 3;
+        var pontosEmpate = campanha.empate * 1;
+        var pontoTotal = pontosVitoria + pontosEmpate;
+
+        mensagem.innerHTML = `O time terminou com ${pontoTotal} pontos`;
+
+    }
+</script>
